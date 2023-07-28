@@ -1,0 +1,1030 @@
+:root {
+    --verde: #68f876;
+    --verdeFuerte: #0ee623;
+    --rojo: #ef233c; 
+} 
+
+body {
+    background-color: #f1f1f1;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    position: relative;
+    
+  /*   height: 93.75px; */
+}
+
+footer {
+    background-color: #333;
+    margin-top: 3rem;
+}
+
+footer .texto-footer {
+    color: #fff;
+    font-size: 1.1rem;
+   
+}
+
+img {
+    width: 100%;
+}
+
+h4, p {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.body-admin {
+    display: flex;
+}
+
+.body-admin main{
+    width: 100%;
+    padding: 0 2rem;
+}
+
+
+
+.header-admin {
+    width: 24rem;
+    height: 100vh;
+    position: relative;
+}
+
+.barra-navegacion-lateral {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 18.5rem;
+    background-color: #333;
+    height: 100vh;
+    z-index: 5;
+}
+
+.menu-lateral h3 {
+    color: #fff;
+    text-shadow: 0px 0px 6px #333;
+}
+
+
+.menu-lateral .cont-enlaces-menu {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    list-style: none;
+}
+
+.menu-lateral .cont-enlaces-menu .enlaces-menu{
+    text-decoration: none;
+    color: #f1f1f1;
+    font-size: 1.2rem;
+    padding: 0.7rem 0 !important;
+    transition: all 0.3s ease;
+    display: block;
+}
+
+.menu-lateral .cont-enlaces-menu .enlaces-menu:hover{
+    color:  var(--verde);
+}
+
+.menu-lateral .cont-enlaces-menu .enlaces-menu.active {
+    color: var(--verde);
+}
+
+.menu-lateral .cont-enlaces-menu .enlaces-menu i{
+    margin-right: 1rem;
+}
+
+.menu-lateral .logo-barra-lateral {
+    position: absolute;
+    left: 50%;
+    bottom: 5rem;
+    transform: translateX(-50%)
+}
+
+.menu-lateral .cont-img-logo {
+    width: 10rem;
+}
+
+.barra-navegacion {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 0;
+    background: rgba(33, 33, 33, 0.5);
+    z-index: 5;
+}
+
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu .logo h1{
+    font-size: 2.3rem;
+    
+}
+
+.menu .logo h1 a{
+    text-decoration: none;
+    color: #f1f1f1;
+    text-shadow: 2px 2px 2px #222;
+}
+
+.menu .logo span {
+    color: var(--verde);
+    font-size: 2.8rem;  
+    margin-left: -0.7rem;
+}
+
+.menu .cont-enlaces-menu {
+    display: flex;
+    list-style: none;
+    margin-top: 0.5rem;
+}
+
+.menu .cont-enlaces-menu .enlaces-menu{
+    text-decoration: none;
+    color: #f1f1f1;
+    font-size: 1.2rem;
+    padding: 1rem;
+    transition: all 0.3s ease;
+}
+
+.menu .cont-enlaces-menu .enlaces-menu:hover{
+    color:  var(--verde);
+}
+
+
+.cont-img-menu {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid rgba(161, 161, 161, 0.8);
+}
+
+.bg-verde {
+    background-color: var(--verde);
+}
+
+.bg-verde-fuerte {
+    background-color: var(--verdeFuerte);
+}
+.btn {
+    font-size: 1.1rem !important;
+    padding: 0.7rem 3rem !important;
+}
+
+.btn-icon {
+    display: block !important;
+    border-radius: 50%;
+    padding: 0.2rem 0.6rem !important;
+    width: auto;
+    font-size: 1.6rem;
+}
+
+.btn-transparente {
+    color: #fff !important;
+    background-color: transparent !important;
+    border: 2px solid var(--verde) !important;
+    padding: 0.5rem 1.5rem !important;
+}
+
+.btn-transparente:hover {
+    color: #fff !important;
+    background-color: var(--verde) !important;
+}
+
+.btn-negro {
+    background-color: #333 !important;
+    color: #fff !important;
+
+}
+
+.btn-negro:hover {
+    background-color: var(--verde) !important;
+    color: #fff !important;
+}
+
+.btn-verde {
+    background-color: var(--verde) !important;
+    color: #fff !important;
+    text-shadow: 0px 0px 5px #333 !important;
+}
+
+.btn-rojo {
+    background-color: var(--rojo) !important;
+    color: #fff !important;
+}
+
+.btn-verde:hover,
+.btn-rojo:hover {
+    background-color: #333 !important;
+    color: #fff !important;
+    
+}
+
+.btn-cerrar {
+    background-color: #333;
+    padding: 0.5rem 1.5rem;
+    margin-top: 1rem;
+    color: #fff;
+}
+
+.btn-cerrar:hover { 
+    background-color: var(--verde);
+    color: #fff;
+}
+
+.btn-seleccionar-hora {
+    border-radius: 10px;
+    padding: 0.5rem 0;
+    padding-left: 0.5rem;
+    border: 2px solid var(--verde) !important;
+    margin: 1rem 0;
+    transition: all 0.3s ease;
+    width: 100% !important;
+    text-align: left !important;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.btn-seleccionar-hora:hover {
+    background-color: var(--verde) !important;
+    color: #f1f1f1 !important;
+}
+
+.btn-seleccionar-hora .span-text-reserva{
+    display: block;
+    color: #999;
+    font-size: 1rem;
+    
+}
+
+.btn-seleccionar-hora:hover .span-text-reserva{
+    transition: all 0.3s ease;
+    color: #f1f1f1;
+}
+
+.btn-eliminar {
+    padding: 0.5rem !important;
+}
+
+.links {
+    text-align: center;
+    display: block;
+    color: #333;
+    font-size: 1.1rem;
+    
+}
+
+.links:hover {
+    color: var(--verde);
+    
+}
+
+.titulos {
+    font-size: 2.3rem;
+    color: #333;
+}
+
+.texto-grande {
+    font-size: 1.7rem
+}
+
+.texto-mediano {
+    font-size: 1.3rem;
+}
+
+.nombre-grande-empresa {
+    font-size: 4rem;
+    text-shadow: 0px 0px 5px #999;
+
+}
+
+.nombre-grande-empresa span{
+    font-size: 4.5rem;
+    color: var(--verde);
+    text-shadow: 0px 0px 5px #999;
+    animation: iluminar infinite 1s linear;
+    transition: all 0.5s ease;
+}
+
+@keyframes iluminar {
+    0% {
+        color: var(--verde);
+        text-shadow: 0px 0px 5px #999;
+    }
+
+    25% {
+        color: #3be94d;
+        text-shadow: 0px 0px 8px #999;
+    }
+
+    75% {
+        color: var(--verdeFuerte);
+        text-shadow: 0px 0px 12spx #999;
+    }
+
+    100% {
+        color: var(--verde);
+        text-shadow: 0px 0px 5px #999;
+    }
+}
+
+.border-bottom {
+    border-bottom: 1px solid rgba(161, 161, 161, 0.5) !important;
+}
+
+.label-form {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.form-control {
+    padding: 0.7rem 1rem !important;
+    font-size: 1.1rem !important;
+    border-radius: 10px !important;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 0.25rem var(--verde);
+}
+
+.input-seleccion {
+    cursor: pointer !important;
+    background-color: #e1e1e1 !important;
+}
+
+.cont-img-logo {
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.cont-img-logo.logo-grande {
+    width: 30rem;
+    box-shadow: 0px 0px 20px #999;
+    
+}
+
+.cont-img-logo.logo-animacion {
+    animation: girar_img infinite 15s linear;
+}
+
+@keyframes girar_img {
+    0% {
+        transform: rotateY(0deg);
+    }
+
+    50% {
+        transform: rotateY(360deg);
+    }
+
+    100% {
+        transform: rotateY(0deg);
+    }
+}
+
+.cont-info-contacto {
+    display: flex;
+/*     padding-top: 0.5rem; */
+    margin: 0.5rem 0;
+    background: rgba(34, 34, 34,0.4);
+    border-radius: 10px;
+}
+
+.cont-info-contacto .icono-info-contacto{
+    font-size: 1.78rem;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    border-right: 2px solid #999;
+
+}
+
+.cont-info-contacto:nth-child(2) .icono-info-contacto{
+    padding: 0 1.19rem;
+
+}
+
+.cont-info-contacto .descripcion-info-contacto {
+    padding: 0.7rem 1rem;
+    
+}
+
+.cont-redes-sociales {
+
+}
+
+.cont-redes-sociales .enlace-red-social {
+    color: #fff;
+    font-size: 3rem;
+    margin: 0 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.cont-redes-sociales .enlace-red-social:hover {
+    color: var(--verde);
+   
+}
+
+.img-50 {
+    width: 50%;
+}
+
+.alerta {
+    margin-top: 0.2rem;
+    font-size: 0.9rem;
+}
+
+.alerta-error,
+.alerta-error-general{
+    color: red;
+}
+
+.alerta-error-general {
+    background-color: rgba(255, 0, 0, 0.2);
+    padding: 1rem;
+    border: 2px solid red;
+    border-radius: 7px;
+}
+
+
+
+.bloque-reserva,
+.cont-consulta-reserva {
+    background-color: #fff;
+    padding: 2rem 0;
+    margin-top: 2rem;
+    border-radius: 10px;
+    border: 2px solid var(--verde);
+    box-shadow: 0px 0px 5px #999;
+}
+
+
+.trama {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(33, 33, 33, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    display: none;
+}
+
+.cont-modal {
+    width: 40rem;
+    padding: 2rem 1rem;
+    background-color: #f1f1f1;
+    border-radius: 30px;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    display: none;
+}
+
+.modal-cabecera {
+    border-bottom: 1px solid #333;
+    position: relative;
+}
+
+.modal-cabecera .btn-salir{
+    position: absolute;
+    top: 0.1rem;
+    right: 1rem;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.modal-cuerpo {
+    border-bottom: 1px solid #333;
+}
+
+.modal-cuerpo .bloque-barbero {
+    margin: 2rem 1rem;
+    width: 100%;
+    background-color: dodgerblue;
+    border: 1px solid #000;
+    cursor: pointer;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+
+.modal-cuerpo .bloque-barbero .img-barbero,
+.bloque1-form .img-barbero{
+    height: 20rem;
+    position: relative;
+}
+
+.bloque1-form .img-barbero {
+    overflow: hidden;
+    margin: 1rem;
+}
+
+
+.icono-respuesta {
+    font-size: 6rem;
+    border-radius: 50%;
+    border: 2px solid var(--verde);
+    padding: 0.2rem 2rem;
+    color: #333;
+}
+
+.modal-cuerpo .bloque-barbero .img-barbero::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: transparent;
+    transition: all 0.7s ease;
+}
+
+.modal-cuerpo .bloque-barbero:hover .img-barbero::after{
+    background-color: rgba(33, 33, 33, 0.3);
+  
+}
+
+.modal-cuerpo .bloque-barbero:hover .img-barbero::after{
+    background-color: rgba(33, 33, 33, 0.3);
+  
+}
+
+.modal-pie {
+    display: flex;
+    justify-content: end;
+    padding-right: 1rem;
+}
+
+.modal-cuerpo .bloque-barbero .nombre-barbero{
+    width: 100%;
+    text-align: center;
+    color: #f1f1f1;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 0.5rem 0;
+    background-color: rgba(33, 33, 33, 0.3);
+    transition: all 0.5s ease;
+}
+
+.modal-cuerpo .bloque-barbero .text-nombre{
+    text-shadow: 0px 3px 10px #333;
+}
+
+.modal-cuerpo .bloque-barbero:hover .nombre-barbero{
+    background-color: rgba(33, 33, 33, 0.3);
+    transform: translateY(-100%);
+}
+
+
+
+#banner {
+    width: 100%;
+    position: relative;
+}
+
+
+#banner::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(33, 33, 33, 0.3);
+}
+
+#banner .img-banner {
+    width: 100%;
+}
+
+#banner .img-banner img {
+    height: 43rem;
+    position: relative;
+}
+
+#banner .texto-banner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+    padding: 1rem;
+    border: 2px solid var(--verde);
+    border-radius: 10px;
+}
+
+#banner .texto-banner p {
+    color: #fff;
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 1px #333;
+}
+
+
+
+#reservar {
+
+}
+
+#reservar .bloque-input {
+    width: 20rem !important;
+}
+
+
+#contacto {
+    background-color: #333;
+    color: #f1f1f1;
+}
+
+#contacto .titulos {
+    color: #fff;
+    margin: 1rem 0;
+}
+
+#mis_reservas {
+    
+}
+
+#mis_reservas .bloque-input{
+    width: 20rem !important;
+}
+
+.body-admin .span-text-reserva,
+#mis_reservas .span-text-reserva {
+    display: block;
+    color: #333;
+    font-size: 1rem;
+}
+
+
+/* ------------------- FORMULARIO PARA RESERVAR LA CITA -------------------------- */
+
+#formulario_reserva {
+     /* height: 100vh; */
+}
+
+#formulario_reserva .cont-formulario-reserva{
+    width: 50rem;
+    background-color: #fff;
+    /* border: 2px solid var(--verde); */
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0px 0px 20px 1px #777;
+}
+
+#formulario_reserva .encabezado-formulario {
+    width: 100%;
+    background-color: #e1e1e1;
+    /* border-bottom: 2px solid var(--verde); */
+    padding: 0.3rem 1rem;
+}
+
+#formulario_reserva .encabezado-formulario .titulos{
+    font-size: 1.8rem;
+    color: #333;
+}
+
+#formulario_reserva .cuerpo-formulario .bloque1-form {
+    width: 40%;
+    border-right: 2px solid #e1e1e1;
+}
+
+#formulario_reserva .cuerpo-formulario .bloque2-form {
+    width: 60%;
+    
+}
+
+
+#formulario_reserva .cuerpo-formulario .bloque1-form h4{
+    margin-top: 0.5rem !important;
+}
+
+#formulario_reserva .cuerpo-formulario .bloque1-form h4:first-child{
+    margin-top: 1rem !important;
+}
+
+#formulario_reserva .cuerpo-formulario .bloque1-form h4:last-child{
+    margin-bottom: 2rem !important;
+}
+
+
+#respuesta-formulario {
+    
+}
+
+#respuesta-formulario .cont-respuesta-form {
+    background-color: #fff;
+    margin-top: 6rem;
+    padding: 2.5rem 0;
+    border-radius: 30px;
+    box-shadow: 0px 0px 10px #999;
+}
+
+
+
+ /*------------------------------- FORMULARIOS -------------------------- */
+.formulario,
+ #formulario-login {
+    padding: 2rem 3rem;
+    padding-bottom: 4.5rem;
+    width: 33rem;
+    border-radius: 20px;
+    border: 2px solid var(--verde);
+    background-color: #fff;
+    box-shadow: 0px 0px 12px #999;
+ }
+
+
+ .formulario.gestion {
+    padding: 1rem !important;
+ }
+
+ .formulario.gestion label,
+ #formulario-login label{
+    position: absolute;
+    top: 60%;
+    margin-left: 1.3rem;
+    transform: translateY(-60%);
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+ }
+
+ .formulario.gestion input:focus ~ label,
+ .formulario.gestion input:valid ~ label,
+ #formulario-login input:focus ~ label,
+ #formulario-login input:valid ~ label {
+    top: 10%;
+    transform: translateY(-10%);
+    margin-left: 1rem;
+    font-size: 0.8rem;
+ }
+
+.formulario .form-control,
+ #formulario-login .form-control {
+    padding-top: 1rem !important;
+    padding-bottom: 0.5rem !important;
+    position: relative;
+    z-index: 2 !important;
+    background-color: transparent !important;
+ }
+
+
+ #formulario-login i {
+    margin-right: 0.2rem;
+ }
+
+
+ #formulario-login.edit .titulos {
+    font-size: 1.7rem;
+
+ } 
+
+ .formulario.gestion .titulos {
+    font-size: 1.4rem;
+ }
+
+ .formulario.gestion,
+ #formulario-login.edit {
+    padding: 2rem;
+ } 
+
+ /* #formulario-login.edit .form-control {
+    padding: 0.7rem 1rem !important;
+ } */
+
+
+/* ------------------------------------------- */
+
+#overlay {
+    background-color: #f1f1f1;
+    z-index: 5 !important;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+#overlay #loader {
+    width: 10rem;
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(1);
+    animation: crecer linear 2s infinite; 
+}
+
+@keyframes crecer {
+
+    0% {
+        transform: translate(-50%,-50%) scale(1);
+    }
+
+    50% {
+        transform: translate(-50%,-50%) scale(1.15);
+    }
+
+    100% {
+        transform: translate(-50%,-50%) scale(1);
+    }
+
+}
+
+.trama-bloque-reserva {
+    position: relative;
+}
+
+.trama-bloque-reserva::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(14, 230, 35, 0.4);
+}
+
+.icon-reserva-lista {
+    font-size: 1.8rem;
+    position: absolute;
+    top: 0.6rem;
+    left: 1rem;
+    color: white;
+    z-index: 2;
+    border-radius: 50%;
+    box-shadow: 0px 0px 8px #333;
+}
+
+.pagination .active span{
+    background-color: #0ee623 !important;
+    border: 1px solid #0ee623;
+}
+
+.boton-cont-navegacion {
+    display: none;
+}
+
+
+/* Responsive */
+
+@media (max-width: 768px) {
+    
+    .boton-cont-navegacion{
+        font-size: 1.5rem;
+        padding: 0 1rem;
+        color: #fff;
+        transition: all 0.3s ease;
+        display: block;
+        cursor: pointer;
+    }
+
+    .boton-cont-navegacion:hover {
+        color: var(--verde);
+    }
+
+    .cont-enlaces-menu {
+        position: absolute;
+        top: 5.4rem;
+        left: -100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        transition: all 0.4s ease;
+    }
+
+    .abrir-navegacion {
+        left: 0;
+    }
+
+    .cont-enlaces-menu {
+        
+        background: rgba(33, 33, 33, 0.5);
+    }
+
+    .cont-enlaces-menu .enlaces-menu {
+        display: block;
+        padding: 1rem 0;
+    }
+
+    .cont-enlaces-menu .enlaces-menu:hover {
+        background-color: var(--verde);
+        color: #fff !important;
+        text-shadow: 2px 2px 3px #333;
+    }
+    
+    /* lOGIN */
+
+    .cont-img-logo.logo-grande {
+        width: 10rem;      
+        
+    }
+
+    .nombre-grande-empresa {
+        font-size: 2rem;
+        margin-top: 5rem;
+    }
+
+    .nombre-grande-empresa span {
+        font-size: 2.5rem;
+    }
+
+    #formulario-login {
+        padding: 2rem 1rem;
+    }
+
+
+    /* Barra lateral; */
+    .header-admin {
+        width: 0%;
+    }
+
+    .texto-grande {
+        font-size: 1.3rem;
+        text-align: left;
+        
+    }
+
+    .barra-navegacion-lateral {
+        width: 100%;
+        background-color: transparent;
+        height: auto;
+    }
+
+    .barra-movil {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 1rem;
+    }
+
+    .barra-movil .boton-cont-navegacion:hover {
+        color: #fff;
+    }
+
+    .navegacion-admin {
+        position: absolute;
+        left: -100%;
+        width: 100%;
+        background-color: #333;
+        transition: all 0.4s ease;
+        height: 100vh;
+    }
+
+    .navegacion-admin .cont-enlaces-menu {
+        left: 0;
+        position: relative;
+        top: 0;
+        display: block;
+        background-color: transparent;
+    }
+
+    .navegacion-admin .cont-enlaces-menu .enlaces-menu{
+        text-align: center;
+      
+    }
+
+    .abrir-navegacion {
+        left: 0;
+    }
+
+    /* Admin index */
+
+    .titulos {
+        font-size: 2rem;
+    }
+
+    .content {
+        margin-top: 2rem;
+    }
+  
+}
+
+@media (max-width: 576px) {
+
+    .cont-filtros {
+        flex-direction: column;
+    }
+
+    .form-movil {
+        max-width: 100%;
+        margin: 0.5rem 0;
+    }
+
+    .form-movil h4{
+        text-align: center;
+    }
+}
