@@ -25,45 +25,45 @@
                             </div>
                         </div>
                     @endif
-                    {{-- @foreach($reservations as $reservation)
+                    @foreach($citas as $cita)
                     <div class="row">
                         <div class="col">
-                            <div class="bloque-reserva {{ $reservation->estado == 2 ? 'trama-bloque-reserva' : '' }}">
+                            <div class="bloque-reserva {{ $cita->status == 2 ? 'trama-bloque-reserva' : '' }}">
                                     
-                                    <div class="row " id="cont_campos_reserva_hoy_{{ $reservation->id }}">
+                                    <div class="row " id="cont_campos_reserva_hoy_{{ $cita->id_cita }}">
                                         <div class="col-10" class="datos-reserva">
                                             <div class="row">
                                                 <div class="col-sm-4 col-md-4 col-lg-3 px-4 texto-mediano">
-                                                    Nombre: 
-                                                    <span class="span-text-reserva">{{ $reservation->nombre }}</span>
+                                                    Fecha creacion: 
+                                                    <span class="span-text-reserva">{{ $cita->fecha_creacion }}</span>
                                                 </div>
                                                 <div class="col-sm-4 col-md-4 col-lg-3 px-4 texto-mediano">
-                                                    Apellido: 
-                                                    <span class="span-text-reserva">{{ $reservation->apellido }}</span>
+                                                    Cliente: 
+                                                    <span class="span-text-reserva">{{ $cita->id_cliente }}</span>
                                                 </div>
                                                 <div class="col-sm-4 col-md-4 col-lg-3 px-4 texto-mediano">
-                                                    Teléfono: 
-                                                    <span class="span-text-reserva">{{ $reservation->telefono }}</span>
+                                                    Empleado: 
+                                                    <span class="span-text-reserva">{{ $cita->id_empleado }}</span>
                                                 </div>
                                                 <div class="col-sm-4 col-md-4 col-lg-3 px-4 texto-mediano">
-                                                    Correo Electrónico: 
-                                                    <span class="span-text-reserva">{{ $reservation->email }}</span>
+                                                    Inicio: 
+                                                    <span class="span-text-reserva">{{ $cita->hora_de_inicio }}</span>
                                                 </div>
                                                 <div class="col-sm-4 col-md-4 col-lg-3 px-4 texto-mediano">
-                                                    Fecha: 
-                                                    <span class="span-text-reserva">{{ $reservation->fecha }}</span>
+                                                    Final: 
+                                                    <span class="span-text-reserva">{{ $cita->hora_de_finalizacion }}</span>
                                                 </div>
                                                 <div class="col-sm-4 col-md-4 col-lg-3 px-4 texto-mediano">
-                                                    Hora: 
-                                                    <span class="span-text-reserva">{{ $reservation->hours->hora }}</span>
+                                                    Estado: 
+                                                    <span class="span-text-reserva">{{ $cita->cancelado }}</span>
                                                 </div>
                                             </div>
                                             
                                         </div>
-                                        @if ($reservation->estado == 1)
+                                        @if ($cita->cancelado == 1)
                                             <div class="col-2 d-flex flex-column justify-content-center align-items-center">
-                                                <button type="button" class="btn btn-verde btn-icon my-2 btn-reserva-lista" value="{{ $reservation->id }}"><i class="fa-solid fa-circle-check"></i></button>
-                                                <button type="button" class="btn btn-rojo btn-icon my-2 btn-modal-eliminar" value="{{ $reservation->id }} " data-bs-toggle="modal" data-bs-target="#modal-eliminar"><i class="fa-solid fa-ban"></i></button>
+                                                <button type="button" class="btn btn-verde btn-icon my-2 btn-reserva-lista" value="{{ $cita->id_cita }}"><i class="fa-solid fa-circle-check"></i></button>
+                                                <button type="button" class="btn btn-rojo btn-icon my-2 btn-modal-eliminar" value="{{ $cita->id_cita }} " data-bs-toggle="modal" data-bs-target="#modal-eliminar"><i class="fa-solid fa-ban"></i></button>
                                             </div>
                                         @endif
                                     </div>
@@ -73,21 +73,21 @@
                                             No se encontraron reservas para el día de hoy
                                         </div>
                                     </div>  
-                                    @if ($reservation->estado == 2)
+                                    @if ($cita->cancelado == 2)
                                         <i class="fa-solid fa-circle-check icon-reserva-lista"></i>
                                     @endif
                                     
                             </div>
                         </div>
                     </div>
-                @endforeach --}}
-                {{-- @if(count($reservations) == 0)
+                @endforeach
+                @if(count($citas) == 0)
                     <div class="row mt-5">
                         <div class="col d-flex justify-content-center texto-mediano">
                             No se encontraron reservas para el día de hoy
                         </div>
                     </div>
-                @endif --}}
+                @endif
             </div>
         </section>
 
@@ -104,10 +104,10 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cancelar</button>
-                        {{-- <form action="{{ route('reservation.delete') }}" method="POST">
+                        <form action="{{ route('cita.delete') }}" method="POST">
                             @csrf
                             <button type="submit" name="eliminar" class="btn btn-sm btn-danger btn-eliminar-reserva">Eliminar</button>
-                        </form> --}}
+                        </form>
                     </div>
                 </div>
             </div>
