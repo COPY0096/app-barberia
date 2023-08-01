@@ -46,5 +46,6 @@ Route::middleware('auth')->group(function () {
 
 Route::resource('clientes', ClienteController::class);
 Route::resource('productos', ProductoController::class);
+Route::resource('citas', CitaController::class);
 
 require __DIR__.'/auth.php';
