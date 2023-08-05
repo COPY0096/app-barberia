@@ -21,7 +21,7 @@
                 <li>{{ $servicio }}</li>
             @endforeach
         </ul>
-    </header>
+    </header>   
 
     <section>
         <h2>Misión Empresarial</h2>
