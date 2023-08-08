@@ -25,6 +25,15 @@ return new class extends Migration
         });
     }
 
+    // public function up()
+    // {
+    //     Schema::create('servicios_reservados', function (Blueprint $table) {
+    //         $table->integer('id_cita')->index('FK_cita');
+    //         $table->integer('id_servicio')->index('FK_SR_servicio');
+    //         $table->timestamps();
+    //     });
+    // }
+
     /**
      * Reverse the migrations.
      *
