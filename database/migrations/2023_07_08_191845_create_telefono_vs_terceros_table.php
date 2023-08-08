@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('idTelefono')->nullable();
             $table->integer('idTercero')->nullable();
             $table->boolean('Estado')->nullable();
+            $table->timestamps();
         });
     }
 

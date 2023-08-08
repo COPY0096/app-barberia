@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('Nombre', 20)->nullable();
             $table->date('Horario')->nullable();
             $table->string('Especialidad', 45)->nullable();
+            $table->timestamps();
         });
     }
 

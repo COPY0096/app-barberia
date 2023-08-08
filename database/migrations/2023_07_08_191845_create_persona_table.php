@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('Sexo', 20)->nullable();
             $table->string('Cedula', 20)->nullable();
             $table->boolean('Estado')->nullable();
+            $table->timestamps();
         });
     }
 

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->date('FechaInc')->nullable();
             $table->boolean('Estado')->nullable();
             $table->string('RNC', 20)->nullable();
+            $table->timestamps();
         });
     }
 

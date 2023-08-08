@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('departamento', function (Blueprint $table) {
             $table->integer('idDepartamento')->primary();
             $table->string('Departamento', 100)->nullable();
+            $table->timestamps();
         });
     }
 

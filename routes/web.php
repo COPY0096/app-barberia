@@ -6,6 +6,8 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CitaController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\EmpleadoController;
+use App\Http\Controllers\ServicioController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,6 +39,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/control/cita', [CitaController::class, 'index'])->name('control.cita');
     Route::get('/admin/compras', [ProductoController::class, 'index'])->name('compra');
     Route::get('/mantenimiento/cliente', [ClienteController::class, 'index'])->name('cliente');
+    Route::get('/mantenimiento/empleado', [EmpleadoController::class, 'index'])->name('empleado');
+    Route::get('/mantenimiento/servicio', [ServicioController::class, 'index'])->name('servicio');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -47,5 +51,7 @@ Route::middleware('auth')->group(function () {
 Route::resource('clientes', ClienteController::class);
 Route::resource('productos', ProductoController::class);
 Route::resource('citas', CitaController::class);
+Route::resource('empleados', EmpleadoController::class);
+Route::resource('servicios', ServicioController::class);
 
 require __DIR__.'/auth.php';

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->boolean('id_dia');
             $table->time('desde_hora');
             $table->time('hasta_hora');
+            $table->timestamps();
         });
     }
 
