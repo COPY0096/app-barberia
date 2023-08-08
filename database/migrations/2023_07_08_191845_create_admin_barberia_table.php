@@ -19,8 +19,10 @@ return new class extends Migration
             $table->string('email', 50);
             $table->string('nombre_completo', 50);
             $table->string('password');
+            $table->timestamps();
 
             $table->unique(['usuario', 'email'], 'usuario');
+
         });
     }
 

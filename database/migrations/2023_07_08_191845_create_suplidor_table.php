@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('suplidor', function (Blueprint $table) {
             $table->integer('idTerceros')->primary();
             $table->boolean('estado')->nullable();
+            $table->timestamps();
         });
     }
 

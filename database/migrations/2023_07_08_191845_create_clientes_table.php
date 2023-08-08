@@ -19,8 +19,7 @@ return new class extends Migration
             $table->string('apellido', 30);
             $table->string('celular', 30);
             $table->string('email_cliente', 50)->unique('email_cliente');
-            $table->timestamp('updated_at')->nullable();
-            $table->timestamp('created_at')->nullable();
+            $table->timestamps();
         });
     }
 

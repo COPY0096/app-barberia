@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('Especialidad', 45)->nullable();
             $table->string('Descripcion', 100)->nullable();
             $table->float('Salario', 10, 0)->nullable();
+            $table->timestamps();
         });
     }
 

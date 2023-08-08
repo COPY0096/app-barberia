@@ -18,8 +18,7 @@ return new class extends Migration
             $table->timestamp('fecha_creacion')->default(\DB::raw('CURRENT_TIMESTAMP'));
             $table->integer('id_cliente')->index('FK_cita_cliente');
             $table->integer('id_empleado')->index('FK_cita_empleado');
-            $table->timestamp('hora_de_inicio');
-            $table->timestamp('hora_de_finalizacion');
+            $table->timestamps();
             $table->boolean('cancelado')->default(false);
             $table->text('razon_de_cancelacion')->nullable();
         });
