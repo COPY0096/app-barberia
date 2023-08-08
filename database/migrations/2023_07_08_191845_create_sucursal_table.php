@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('idTerceros', 45)->nullable();
             $table->string('nombre_sucursal', 45)->nullable();
             $table->boolean('estado')->nullable();
+            $table->timestamps();
 
             $table->primary(['idSucursal']);
         });

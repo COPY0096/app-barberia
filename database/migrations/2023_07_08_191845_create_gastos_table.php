@@ -19,6 +19,7 @@ return new class extends Migration
             $table->dateTime('fecha')->nullable();
             $table->integer('monto')->nullable();
             $table->string('categoria', 45)->nullable();
+            $table->timestamps();
         });
     }
 

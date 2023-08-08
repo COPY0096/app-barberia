@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('idPuesto', 45)->nullable();
             $table->dateTime('fecha')->nullable();
             $table->boolean('puesto')->nullable();
+            $table->timestamps();
         });
     }
 

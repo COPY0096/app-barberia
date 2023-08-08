@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('idEspecialidad')->nullable();
             $table->dateTime('Fecha_contratacion')->nullable();
             $table->dateTime('Fecha_despido')->nullable();
+            $table->timestamps();
         });
     }
 

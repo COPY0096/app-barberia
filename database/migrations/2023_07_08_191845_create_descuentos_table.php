@@ -20,6 +20,7 @@ return new class extends Migration
             $table->dateTime('fecha_inicio')->nullable();
             $table->dateTime('fecha_fin')->nullable();
             $table->string('servicio', 45)->nullable();
+            $table->timestamps();
         });
     }
 
