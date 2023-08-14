@@ -6,6 +6,38 @@
     <title>Salón de Belleza - Servicios y Cita</title>
 </head>
 <body>
+
+
+        <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
+            @if (Route::has('login'))
+                <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
+                    @auth
+                        <a href="{{ url('/dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
+                    @else
+                        <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
+
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+                        @endif
+                    @endauth
+                </div>
+            @endif
+                <div>
+                    <h1>BarberShop101</h1>
+                </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
     <header>
         <h1>Nuestros Servicios</h1>
         <h2>Servicios de Peluquería</h2>
@@ -40,31 +72,6 @@
         <p>Correo electrónico: {{ $correo }}</p>
     </section>
 
-    <section>
-        <h2>Crear una cita</h2>
-        <form action="{{ route('cita.store') }}" method="post">
-            @csrf
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required>
-            <br>
 
-            <label for="servicio">Servicio:</label>
-            <select id="servicio" name="servicio" required>
-                <option value="peluqueria">Servicio de Peluquería</option>
-                <option value="spa">Servicio de Spa</option>
-            </select>
-            <br>
-
-            <label for="fecha">Fecha:</label>
-            <input type="date" id="fecha" name="fecha" required>
-            <br>
-
-            <label for="hora">Hora:</label>
-            <input type="time" id="hora" name="hora" required>
-            <br>
-
-            <input type="submit" value="Crear Cita">
-        </form>
-    </section>
 </body>
 </html>
