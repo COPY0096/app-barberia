@@ -48,6 +48,9 @@ Route::get('/', function () {
 
 
 
+Route::get('/redireccionar', function () {
+    return view('home');
+});
 
 
 
