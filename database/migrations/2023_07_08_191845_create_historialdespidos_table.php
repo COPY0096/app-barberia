@@ -14,8 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('historialdespidos', function (Blueprint $table) {
-            $table->integer('idPersona');
-            $table->integer('idEspecialidad')->nullable();
+            $table->unsignedBigInteger('idTerceros')->nullable();
+            $table->foreign('idTerceros')->references('idTerceros')->on('persona');
+            $table->unsignedBigInteger('idEspecialidad')->nullable();
+            $table->foreign('idEspecialidad')->references('idEspecialidad')->on('especialidad');
             $table->dateTime('Fecha_contratacion')->nullable();
             $table->dateTime('Fecha_despido')->nullable();
             $table->timestamps();

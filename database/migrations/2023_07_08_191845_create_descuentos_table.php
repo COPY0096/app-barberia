@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('descuentos', function (Blueprint $table) {
-            $table->integer('idDescuentos')->primary();
+            $table->id('idDescuentos');
             $table->string('Codigo_descuentos', 45)->nullable();
             $table->integer('porcentajes_descuentos')->nullable();
             $table->dateTime('fecha_inicio')->nullable();

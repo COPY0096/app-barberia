@@ -14,8 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('telefono_vs_terceros', function (Blueprint $table) {
-            $table->integer('idTelefono')->nullable();
-            $table->integer('idTercero')->nullable();
+            $table->unsignedBigInteger('idTelefono')->nullable();
+            $table->foreign('idTelefono')->references('idTelefono')->on('telefono');
+            $table->unsignedBigInteger('idTerceros')->nullable();
+            $table->foreign('idTerceros')->references('idTerceros')->on('terceros');
             $table->boolean('Estado')->nullable();
             $table->timestamps();
         });

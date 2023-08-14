@@ -13,8 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('servicios', function (Blueprint $table) {
-            $table->foreign(['id_categoria'], 'FK_categoria_servicios')->references(['id_categoria'])->on('categoria_servicios')->onUpdate('NO ACTION')->onDelete('CASCADE');
+        Schema::create('empleados', function (Blueprint $table) {
+            $table->id('id_empleado', true);
+            $table->string('nombre', 20);
+            $table->string('apellido', 20);
+            $table->string('celular', 30);
+            $table->string('email', 50);
+            $table->timestamps();
         });
     }
 
@@ -25,8 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('servicios', function (Blueprint $table) {
-            $table->dropForeign('FK_categoria_servicios');
-        });
+        Schema::dropIfExists('empleados');
     }
 };

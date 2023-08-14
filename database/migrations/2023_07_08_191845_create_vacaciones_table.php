@@ -14,7 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('vacaciones', function (Blueprint $table) {
-            $table->integer('idEmpleado');
+            $table->unsignedBigInteger('id_empleado');
+            $table->foreign('id_empleado')->references('id_empleado')->on('empleados');
             $table->dateTime('fecha_inicio')->nullable();
             $table->dateTime('fecha_fin')->nullable();
             $table->boolean('estado')->nullable();

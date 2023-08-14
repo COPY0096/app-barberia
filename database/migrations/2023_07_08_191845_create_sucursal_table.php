@@ -14,13 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('sucursal', function (Blueprint $table) {
-            $table->integer('idSucursal')->unique('idSucursal_UNIQUE');
-            $table->string('idTerceros', 45)->nullable();
+            $table->id('idSucursal');
+            $table->unsignedBigInteger('idTerceros');
+            $table->foreign('idTerceros')->references('idTerceros')->on('terceros');
             $table->string('nombre_sucursal', 45)->nullable();
             $table->boolean('estado')->nullable();
             $table->timestamps();
 
-            $table->primary(['idSucursal']);
         });
     }
 

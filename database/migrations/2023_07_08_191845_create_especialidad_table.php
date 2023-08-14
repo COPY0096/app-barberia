@@ -14,8 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('especialidad', function (Blueprint $table) {
-            $table->integer('idEspecialidad')->primary();
-            $table->integer('idDepartamento')->nullable();
+            $table->id('idEspecialidad');
+            $table->unsignedBigInteger('idDepartamento')->nullable();
+            $table->foreign('idDepartamento')->references('idDepartamento')->on('departamento');
             $table->string('Especialidad', 45)->nullable();
             $table->string('Descripcion', 100)->nullable();
             $table->float('Salario', 10, 0)->nullable();

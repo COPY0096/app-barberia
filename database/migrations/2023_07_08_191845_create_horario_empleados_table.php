@@ -14,8 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('horario_empleados', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('id_empleado')->index('FK_emp');
+            $table->id('id', true);
+            $table->unsignedBigInteger('id_empleado');
+            $table->foreign('id_empleado')->references('id_empleado')->on('empleados');
             $table->boolean('id_dia');
             $table->time('desde_hora');
             $table->time('hasta_hora');

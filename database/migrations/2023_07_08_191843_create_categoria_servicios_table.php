@@ -13,8 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('horario_empleados', function (Blueprint $table) {
-            $table->foreign(['id_empleado'], 'FK_emp')->references(['id_empleado'])->on('empleados')->onUpdate('NO ACTION')->onDelete('CASCADE');
+        Schema::create('categoria_servicios', function (Blueprint $table) {
+            $table->id('id_categoria', true);
+            $table->string('nombre_categoria', 50);
+            $table->timestamps();
         });
     }
 
@@ -25,8 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('horario_empleados', function (Blueprint $table) {
-            $table->dropForeign('FK_emp');
-        });
+        Schema::dropIfExists('categoria_servicios');
     }
 };
