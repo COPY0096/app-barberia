@@ -36,7 +36,7 @@ Route::get('/', function () {
      $telefono = '809-123-3456';
      $correo = 'correo@empresa.com';
 
-     return view('index', compact('serviciosPeluqueria', 'serviciosSpa', 'mision', 'vision', 'direccion', 'telefono', 'correo'));
+     return view('Usuarios\index', compact('serviciosPeluqueria', 'serviciosSpa', 'mision', 'vision', 'direccion', 'telefono', 'correo'));
  })->name('inicio');
 
  Route::post('/cita', function () {

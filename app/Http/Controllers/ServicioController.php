@@ -17,7 +17,7 @@ class ServicioController extends Controller
     public function index(): view
     {
         //
-                $servicios = Servicio::all();
+            $servicios = Servicio::all();
         
         return view ('admin.servicios.index', ['servicios' => $servicios]);
     }

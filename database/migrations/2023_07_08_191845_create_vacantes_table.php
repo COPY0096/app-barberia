@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('vacantes', function (Blueprint $table) {
-            $table->integer('numero_vacante')->primary();
+            $table->id('numero_vacante');
             $table->string('idPuesto', 45)->nullable();
             $table->dateTime('fecha')->nullable();
             $table->boolean('puesto')->nullable();

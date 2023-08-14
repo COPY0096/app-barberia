@@ -13,13 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('barbero', function (Blueprint $table) {
-            $table->integer('idBarbero')->primary();
-            $table->string('Nombre', 20)->nullable();
-            $table->date('Horario')->nullable();
-            $table->string('Especialidad', 45)->nullable();
-            $table->timestamps();
-        });
+        
+        if(!Schema::hasTable('barbero')){
+            Schema::create('barbero', function (Blueprint $table) {
+                $table->id('idBarbero');
+                $table->string('Nombre', 20)->nullable();
+                $table->date('Horario')->nullable();
+                $table->string('Especialidad', 45)->nullable();
+                $table->timestamps();
+            });
+        } 
+
+        
     }
 
     /**
