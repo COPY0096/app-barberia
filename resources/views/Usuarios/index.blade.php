@@ -142,7 +142,7 @@
     <!-- Tus encabezados aquí -->
 </head>
 <body>
-    <!-- Tu contenido actual aquí -->
+    <!-- Tu contenido actual aquí -->   
     <section>
         <h2>Reserva un Servicio</h2>
         <p>¿Listo para lucir increíble?</p>
