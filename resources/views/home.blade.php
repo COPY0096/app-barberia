@@ -1,51 +1,54 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Citas</title>
+    <title>Sistema de Peluquería/Salón</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f7f7f7;
+            background-color: #f5f5f5;
             margin: 0;
             padding: 0;
         }
-
+        
         section {
             background-color: #fff;
             border-radius: 10px;
-            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
-            margin: 50px auto;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
             padding: 20px;
+            max-width: 400px;
+            margin: 40px auto;
         }
 
         h2 {
-            font-size: 24px;
-            margin-bottom: 15px;
+            color: #333;
+            margin-bottom: 20px;
         }
 
-        form label {
-            font-size: 14px;
+        label {
             display: block;
             margin-bottom: 5px;
         }
 
-        form input[type="text"],
-        form select,
-        form input[type="date"],
-        form input[type="time"] {
+        input[type="text"],
+        input[type="date"],
+        input[type="time"],
+        input[type="email"],
+        select {
             width: 100%;
-            padding: 8px;
-            font-size: 14px;
+            padding: 10px;
+            margin-bottom: 15px;
             border: 1px solid #ccc;
             border-radius: 5px;
+            font-size: 14px;
         }
 
-        form input[type="submit"] {
+        select {
+            cursor: pointer;
+        }
+
+        input[type="submit"] {
             background-color: #007bff;
             color: #fff;
             border: none;
@@ -54,84 +57,56 @@
             cursor: pointer;
         }
 
-        form input[type="submit"]:hover {
+        input[type="submit"]:hover {
             background-color: #0056b3;
         }
     </style>
+    <script>
+    
+    </script>
 </head>
+<body>
+    
+        <form action="{{ route('cita.store') }}" method="post">
+            <!-- ... Rest of the form remains the same ... -->
+        </form>
+   
+</body>
+</html>
+
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear una Cita</title>
-    <style>
-        body {
-            font-family: 'Helvetica Neue', sans-serif;
-            background-color: #f7f7f7;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+    <title>Sistema de Peluquería/Salón</title>
+    <script>
+        function mostrarOpcionesSegunServicio() {
+            var servicioSeleccionado = document.getElementById("servicio").value;
+            var barberoCampo = document.getElementById("campo-barbero");
+            var tipoServicioCampo = document.getElementById("campo-tipo-servicio");
+            
+            if (servicioSeleccionado === "peluqueria") {
+                barberoCampo.style.display = "block";
+                tipoServicioCampo.style.display = "block";
+                var tipoServicioSelect = document.getElementById("tipo_servicio");
+                tipoServicioSelect.innerHTML = `
+                    <option value="corte">Corte de pelo</option>
+                    <option value="peinado">Peinado</option>
+                    <option value="tinte">Tinte de pelo</option>
+                    <option value="facial">Facial</option>
+                `;
+            } else if (servicioSeleccionado === "spa") {
+                barberoCampo.style.display = "none";
+                tipoServicioCampo.style.display = "block";
+                var tipoServicioSelect = document.getElementById("tipo_servicio");
+                tipoServicioSelect.innerHTML = `
+                    <option value="manicura">Manicura</option>
+                    <option value="pedicura">Pedicura</option>
+                    <option value="masaje">Masaje</option>
+                    <option value="relajacion">Sistemas de Relajación</option>
+                `;
+            }
         }
-
-        section {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            width: 80%;
-            max-width: 400px;
-        }
-
-        h2 {
-            color: #ff8c00;
-            margin-bottom: 20px;
-        }
-
-        form {
-            display: grid;
-            gap: 15px;
-        }
-
-        label {
-            font-weight: bold;
-        }
-
-        input[type="text"],
-        select,
-        input[type="date"],
-        input[type="time"],
-        input[type="submit"] {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-            transition: border-color 0.3s;
-        }
-
-        input[type="text"]:focus,
-        select:focus,
-        input[type="date"]:focus,
-        input[type="time"]:focus {
-            border-color: #ff8c00;
-        }
-
-        input[type="submit"] {
-            background-color: #ff8c00;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #ff6b00;
-        }
-    </style>
+    </script>
 </head>
 <body>
     <section>
@@ -142,10 +117,28 @@
             <input type="text" id="nombre" name="nombre" required>
 
             <label for="servicio">Servicio:</label>
-            <select id="servicio" name="servicio" required>
+            <select id="servicio" name="servicio" required onchange="mostrarOpcionesSegunServicio()">
                 <option value="peluqueria">Servicio de Peluquería</option>
                 <option value="spa">Servicio de Spa</option>
             </select>
+
+            <div id="campo-barbero" style="display:none;">
+                <label for="barbero">Barbero:</label>
+                <select id="barbero" name="barbero" required>
+                    <option value="barbero1">Barbero 1</option>
+                    <option value="barbero2">Barbero 2</option>
+                    <option value="barbero3">Barbero 3</option>
+                    <option value="barbero4">Barbero 4</option>
+                    <option value="barbero5">Barbero 5</option>
+                </select>
+            </div>
+
+            <div id="campo-tipo-servicio" style="display:none;">
+                <label for="tipo_servicio">Tipo de Servicio:</label>
+                <select id="tipo_servicio" name="tipo_servicio" required>
+                    <!-- Las opciones se generan dinámicamente según el servicio seleccionado -->
+                </select>
+            </div>
 
             <label for="fecha">Fecha:</label>
             <input type="date" id="fecha" name="fecha" required>
@@ -156,12 +149,38 @@
             <label for="correo">Correo electrónico:</label>
             <input type="email" id="correo" name="correo" required>
 
-            <input type="submit" value="Crear Cita">
 
-            
+            <!DOCTYPE html>
+<html>
+<head>
+    <title>Sistema de Peluquería/Salón</title>
+    <style>
+        
+    </style>
+    <script>
+        function mostrarMensajeCitaCreada() {
+            alert("¡La cita ha sido creada exitosamente!");
+        }
+    </script>
+</head>
+<body>
+    
+        <form action="{{ route('cita.store') }}" method="post">
+            <!-- ... Rest of the form ... -->
+            <input type="submit" value="Crear Cita" onclick="mostrarMensajeCitaCreada()">
+        </form>
+
+        
+
+</body>
+</html>
+
         </form>
     </section>
 </body>
+
+</html>
+
 
 </html>
 
