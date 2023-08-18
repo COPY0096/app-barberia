@@ -320,7 +320,8 @@ return [
         ],
         [
             'text'    => 'Procesos',
-            'icon'    => 'fas fa-receipt',
+            'icon'    => 'fas fa-cogs',
+            // fas fa-receipt
             'submenu' => [
                 [
                     'text'        => 'Control Citas',
@@ -331,23 +332,26 @@ return [
                 ],
                 [
                     'text'        => 'Compras',
-                    'url'         => '/admin/compras',
-                    'icon'        => 'fas fa-store',
+                    'url'         => '/proceso/compra',
+                    'icon'        => 'fas fa-shopping-basket',
                     // 'label'       => 4,
                     'label_color' => 'success',
                 ],
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
+                    'text'        => 'Ventas',
+                    'url'         => '/admin/ventas',
+                    'icon'        => 'fas fa-store',
+                    // 'label'       => 4,
+                    'label_color' => 'success',
+                ]
+                // [
+                //     'text' => 'level_one',
+                //     'url'  => '#',
+                // ],
+                // [
+                //     'text' => 'level_one',
+                //     'url'  => '#',
+                // ],
             ],
         ],
 
@@ -384,11 +388,53 @@ return [
                     'label_color' => 'success',
                 ],
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text'        => 'Productos',
+                    'url'         => '/mantenimiento/producto',
+                    'icon'        => 'fas fa-receipt',
+                    // 'label'       => 4,
+                    'label_color' => 'success',
                 ],
+                // [
+                //     'text' => 'level_one',
+                //     'url'  => '#',
+                // ],
+                // [
+                //     'text' => 'level_one',
+                //     'url'  => '#',
+                // ],
             ],
         ],
+        [
+            'text'    => 'Estadisticas',
+            'icon'    => 'fas fa-clipboard-list',
+            'submenu' => [
+                [
+                    'text'        => 'Ventas',
+                    'url'         => '/na',
+                    'icon'        => 'fas fa-tasks',
+                    // 'label'       => 4,
+                    'label_color' => 'success',
+                ],
+                [
+                    'text'        => 'Citas',
+                    'url'         => '/na',
+                    'icon'        => 'far fa-clipboard',
+                    // 'label'       => 4,
+                    'label_color' => 'success',
+                ],
+                // [
+                //     'text' => 'level_one',
+                //     'url'  => '#',
+                // ],
+                // [
+                //     'text' => 'level_one',
+                //     'url'  => '#',
+                // ],
+            ],
+        ],
+
+
+
         ['header' => 'Configuracion Cuenta'],
         [
             'text' => 'profile',

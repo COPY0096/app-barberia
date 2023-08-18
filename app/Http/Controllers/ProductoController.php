@@ -38,7 +38,7 @@ class ProductoController extends Controller
         ]);
 
         Producto::create($request->all());
-        return redirect()->route('compra')->with('success', 'Nuevo compra realizada exitosamente!');
+        return redirect()->route('producto')->with('success', 'Nuevo producto realizada exitosamente!');
     }
 
     /**

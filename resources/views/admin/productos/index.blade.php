@@ -1,11 +1,11 @@
 @extends('adminlte::page')
 
-@section('title', 'Compras')
+@section('title', 'Productos')
 
 @section('content_header')
     <h1>
-        Compras
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-create-cita">
+        Productos
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-create-producto">
             Añadir
         </button>
     </h1>
@@ -23,17 +23,18 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Inventario</h3>
+                        <h3 class="card-title">Listado de productos</h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
                         <table id="productos" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>Foto</th>
                                     <th>ID</th>
+                                    <th>Foto</th>
                                     <th>Nombre</th>
                                     <th>Descripcion</th>
+                                    <th>Categoria</th>
                                     <th>Estado</th>
                                     <th>Acciones</th>
 
@@ -42,10 +43,13 @@
                             <tbody>
                                 @foreach ($productos as $producto)
                                 <tr>
-                                    <td>{{ $producto->photo }}</td>
+                                    <!-- <td>{{ $producto->photo }}</td> -->
+                                    
                                     <td>{{ $producto->id_producto }}</td>
+                                    <td><img src="{{ asset('ruta/del/archivo/' . $producto->photo) }}" alt="Foto del producto" width="100"></td>
                                     <td>{{ $producto->nombre }}</td>
                                     <td>{{ $producto->descripcion }}</td>
+                                    <td>{{ $producto->id_categoria }}</td>
                                     <td>{{ $producto->estado }}</td>
                                     <td>
                                         <button class="btn btn-warning">Editar</button>
@@ -56,10 +60,11 @@
 
                             </tbody>
                             <tfoot>
-                                <th>Foto</th>
                                 <th>ID</th>
+                                <th>Foto</th>
                                 <th>Nombre</th>
                                 <th>Descripcion</th>
+                                <th>Categoria</th>
                                 <th>Estado</th>
                                 <th>Acciones</th>
                             </tfoot>
@@ -77,15 +82,16 @@
     </div>
 
     <!-- modal -->
-    <div class="modal fade" id="modal-create-producto">
+        <div class="modal fade" id="modal-create-producto">
         <div class="modal-dialog">
             <div class="modal-content bg-default">
                 <div class="modal-header">
                     <h4 class="modal-title">Crear Producto</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span></button>
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <form action="{{ route('productos.store') }}" method="POST">
+                <form action="{{ route('productos.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-body">
                         <div class="form-group">
@@ -96,21 +102,21 @@
                             <label for="descripcion">Descripcion</label>
                             <input type="text" name="descripcion" class="form-control" id="descripcion">
                         </div>
-                        <!-- <div class="form-group">
-                            <label for="status">Estado</label>
-                            <input type="text" name="status" class="form-control" id="status">
-                        </div> -->
+                        <div class="form-group">
+                            <label for="id_categoria">Categoria</label>
+                            <input type="text" name="id_categoria" class="form-control" id="id_categoria">
+                        </div>
                         <div class="form-group">
                             <strong>Estado (inicial):</strong>
                             <select name="status" class="form-select" id="">
                                 <option value="">-- Elige el status --</option>
-                                <option value="Disponible">Disponible</option>
-                                <option value="No Disponible">En progreso</option>
+                                <option value="1">Disponible</option>
+                                <option value="0">No Disponible</option>
                             </select>
-                         </div>
+                        </div>
                         <div class="form-group">
                             <label for="photo">Foto</label>
-                            <input type="text" name="photo" class="form-control" id="photo">
+                            <input type="file" name="photo" class="form-control-file" id="photo">
                         </div>
                     </div>
 

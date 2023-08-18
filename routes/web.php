@@ -8,6 +8,7 @@ use App\Http\Controllers\CitaController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\ServicioController;
+use App\Http\Controllers\CompraController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,10 +64,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/home',[HomeController::class,'index'])->name('home');
 
     Route::get('/control/cita', [CitaController::class, 'index'])->name('control.cita');
-    Route::get('/admin/compras', [ProductoController::class, 'index'])->name('compra');
+    Route::get('/proceso/compra', [CompraController::class, 'index'])->name('compra');
+    Route::get('/mantenimiento/producto', [ProductoController::class, 'index'])->name('producto');
     Route::get('/mantenimiento/cliente', [ClienteController::class, 'index'])->name('cliente');
     Route::get('/mantenimiento/empleado', [EmpleadoController::class, 'index'])->name('empleado');
     Route::get('/mantenimiento/servicio', [ServicioController::class, 'index'])->name('servicio');
+    Route::get('/mantenimiento/producto', [ProductoController::class, 'index'])->name('producto');
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -81,6 +85,7 @@ Route::resource('productos', ProductoController::class);
 Route::resource('citas', CitaController::class);
 Route::resource('empleados', EmpleadoController::class);
 Route::resource('servicios', ServicioController::class);
+Route::resource('compras', CompraController::class);
 
 
 
