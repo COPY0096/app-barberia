@@ -26,6 +26,8 @@ Route::get('/', function () {
 });
 
 
+
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
  Route::get('/', function () {
      //Datos para mostrar en la vista
@@ -52,6 +54,10 @@ Route::get('/', function () {
 Route::get('/redireccionar', function () {
     return view('home');
 });
+
+Route::get('/proceso/producto', [ProductoController::class, 'mostrar'])->name('mostrar');
+
+
 
 
 

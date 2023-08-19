@@ -1,5 +1,3 @@
-<?php
-
 namespace App\Http\Controllers;
 
 use App\Models\Cita;
@@ -15,11 +13,8 @@ class CitaController extends Controller
      */
     public function index(): view
     {
-        //
-
         $citas = Cita::all();
-        
-        return view ('admin.citas.index', ['citas' => $citas]);
+        return view('citas.index', ['citas' => $citas]);
     }
 
     /**
@@ -27,7 +22,7 @@ class CitaController extends Controller
      */
     public function create()
     {
-        //
+        return view('citas.create');
     }
 
     /**
@@ -35,14 +30,16 @@ class CitaController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        //
         $request->validate([
-            'id_cliente' => 'required',
-            'id_empleado' => 'required'
+            'nombre' => 'required',
+            'fecha' => 'required',
+            'hora' => 'required',
+            'barbero' => 'required',
+            // Agrega más validaciones según tus campos
         ]);
 
         Cita::create($request->all());
-        return redirect()->route('control.cita')->with('success', 'Cita creada exitosamente!');
+        return redirect()->route('citas.index')->with('success', 'Cita creada exitosamente!');
     }
 
     /**
@@ -50,7 +47,7 @@ class CitaController extends Controller
      */
     public function show(Cita $cita)
     {
-        //
+        return view('citas.show', ['cita' => $cita]);
     }
 
     /**
@@ -58,8 +55,7 @@ class CitaController extends Controller
      */
     public function edit(Cita $cita): view
     {
-        //
-        return view('edit', ['cita' => $cita]);
+        return view('citas.edit', ['cita' => $cita]);
     }
 
     /**
@@ -67,14 +63,16 @@ class CitaController extends Controller
      */
     public function update(Request $request, Cita $cita): RedirectResponse
     {
-        //
         $request->validate([
-            'id_cliente' => 'required',
-            'id_empleado' => 'required'
+            'nombre' => 'required',
+            'fecha' => 'required',
+            'hora' => 'required',
+            'barbero' => 'required',
+            // Agrega más validaciones según tus campos
         ]);
 
         $cita->update($request->all());
-        return redirect()->route('control.cita')->with('success', 'Cita actualizada exitosamente!');
+        return redirect()->route('citas.index')->with('success', 'Cita actualizada exitosamente!');
     }
 
     /**
@@ -82,6 +80,7 @@ class CitaController extends Controller
      */
     public function destroy(Cita $cita)
     {
-        //
+        $cita->delete();
+        return redirect()->route('citas.index')->with('success', 'Cita eliminada exitosamente!');
     }
 }

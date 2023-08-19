@@ -1,3 +1,4 @@
+
 @extends('adminlte::page')
 
 @section('title', 'Productos')
@@ -146,3 +147,4 @@
         });
     </script>
 @stop
+

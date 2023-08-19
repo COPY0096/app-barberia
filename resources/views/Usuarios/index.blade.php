@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Salón de Belleza - Servicios y Cita</title>
+    <title>Salón de Belleza - Servicios y Citas</title>
 </head>
 <body>
 
@@ -105,6 +105,8 @@
             <header>
                 <h1>¡Bienvenido a nuestro Salón!</h1>
                 <h2>Explora nuestros Servicios</h2>
+                <a href="{{ route('mostrar') }}" class="btn btn-primary">Mostrar Productos</a>
+
                 <ul>
                     @foreach ($serviciosPeluqueria as $servicio)
                         <li>{{ $servicio }}</li>
@@ -118,6 +120,8 @@
                     @endforeach
                 </ul>
             </header>
+
+            
         
             <section>
                 <h2>Descubre nuestra Misión</h2>
@@ -136,6 +140,8 @@
                 <p>Correo: {{ $correo }}</p>
             </section>
 
+            
+
             <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -150,9 +156,10 @@
     </section>
 </body>
 </html>
-//asdasdasd
+
         </body>
         </html>
+        
         
 
 
