@@ -25,4 +25,12 @@ class Compra extends Model
     {
         return $this->belongsTo(Cliente::class, 'id_cliente');
     }
+
+    public function getTotalAttribute()
+    {
+        return $this->productos->sum(function ($producto) {
+            return $producto->pivot->precio_unitario * $producto->pivot->cantidad;
+        });
+    }
+
 }
