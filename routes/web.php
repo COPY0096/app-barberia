@@ -25,11 +25,6 @@ Route::get('/', function () {
 });
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::resource('citas', CitaController::class);
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -58,6 +53,10 @@ Route::resource('citas', CitaController::class);
 Route::get('/redireccionar', function () {
     return view('home');
 });
+
+Route::get('/proceso/producto', [ProductoController::class, 'mostrar'])->name('mostrar');
+
+
 
 
 

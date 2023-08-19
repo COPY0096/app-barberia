@@ -18,6 +18,14 @@ class ProductoController extends Controller
         return view ('admin.productos.index', ['productos' => $productos]);
     }
 
+    public function mostrar()
+    {
+        //
+        $productos = Producto::all();
+        
+        return view ('Usuarios.mostrarprod', ['productos' => $productos]);
+    }
+
     /**
      * Show the form for creating a new resource.
      */
