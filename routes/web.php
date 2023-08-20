@@ -60,17 +60,17 @@ Route::get('/proceso/producto', [ProductoController::class, 'mostrar'])->name('m
 
 
 Route::get('/productos', [ProductoController::class, 'index'])->name('productos.index');
-Route::get('/productos/{id}', [ProductoController::class, 'mostrar'])->name('productos.mostrar');
+
+Route::resource('cita', 'CitaController'); // Esto define todas las rutas necesarias para CRUD
+
 
 // routes/web.php
 
 
 
-Route::middleware(['auth'])->group(function () {
-    Route::get('/carrito', [CarritoController::class, 'index'])->name('carrito.index');
-    Route::post('/carrito/add', [CarritoController::class, 'addProduct'])->name('carrito.add');
-    Route::post('/carrito/remove', [CarritoController::class, 'removeProduct'])->name('carrito.remove');
-});
+
+
+Route::post('/agregar-al-carrito/{producto}', [CarritoController::class, 'agregarProducto'])->name('agregar-al-carrito');
 
 
 

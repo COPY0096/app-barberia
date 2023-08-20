@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,9 +13,8 @@ return new class extends Migration
         Schema::create('productos', function (Blueprint $table) {
             $table->id('id_producto', true);
             $table->string('nombre', 30);
-            $table->string('descripcion', 50);
-            $table->boolean('status');
-            $table->binary('photo');
+            $table->string('descripcion', 200);
+            $table->float('precio'); // Corregido aquí
             $table->timestamps();
         });
     }

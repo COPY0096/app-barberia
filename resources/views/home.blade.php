@@ -123,11 +123,11 @@
             <div id="campo-barbero" style="display:none;">
                 <label for="barbero">Barbero:</label>
                 <select id="barbero" name="barbero" required>
-                    <option value="barbero1">Barbero 1</option>
-                    <option value="barbero2">Barbero 2</option>
-                    <option value="barbero3">Barbero 3</option>
-                    <option value="barbero4">Barbero 4</option>
-                    <option value="barbero5">Barbero 5</option>
+                    <option value="ricardo">Barbero 1</option>
+                    <option value="jeremy">Barbero 2</option>
+                    <option value="ramon">Barbero 3</option>
+                    <option value="agustin">Barbero 4</option>
+                    <option value="roberto">Barbero 5</option>
                 </select>
             </div>
 
@@ -160,13 +160,16 @@
             alert("¡La cita ha sido creada exitosamente!");
         }
     </script>
+    
 </head>
 <body>
     
-        <form action="{{ route('cita.store') }}" method="post">
-            <!-- ... Rest of the form ... -->
-            <input type="submit" value="Crear Cita" onclick="mostrarMensajeCitaCreada()">
-        </form>
+    <form action="{{ route('cita.store') }}" method="post">
+        @csrf
+        <!-- ... Campos del formulario ... -->
+        <input type="submit" value="Crear Cita">
+    </form>
+    
 
         
 

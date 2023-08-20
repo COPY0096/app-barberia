@@ -1,40 +1,18 @@
 <?php
 
-// app/Http/Controllers/CartController.php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Producto;
-use Auth;
+use App\Models\Producto; // Importar el modelo Producto
 
 class CarritoController extends Controller
 {
-    public function index()
+    public function agregarProducto(Request $request, Producto $producto)
     {
-        $user = Auth::user();
-        $cartItems = $user->carts;
-        return view('cart.index', compact('cartItems'));
-    }
-
-    public function addProduct(Request $request)
-    {
-        $user = Auth::user();
-        $productId = $request->input('product_id');
-        $quantity = $request->input('quantity', 1);
-
-        $user->carts()->attach($productId, ['quantity' => $quantity]);
-
-        return redirect()->route('carrito.index')->with('success', 'Producto agregado al carrito.');
-    }
-
-    public function removeProduct(Request $request)
-    {
-        $user = Auth::user();
-        $productId = $request->input('product_id');
-
-        $user->carts()->detach($productId);
-
-        return redirect()->route('carrito.index')->with('success', 'Producto removido del carrito.');
+        // Aquí puedes implementar la lógica para agregar el producto al carrito.
+        // Puedes guardar la información en la base de datos o en la sesión del usuario.
+        // Por ejemplo:
+        // Agregar código para guardar $producto en el carrito
+        return redirect()->back()->with('success', 'Producto agregado al carrito.');
     }
 }
