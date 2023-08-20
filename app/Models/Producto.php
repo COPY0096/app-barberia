@@ -9,8 +9,12 @@ class Producto extends Model
 {
     use HasFactory;
 
-
+    public function carrito()
+    {
+        return $this->belongsToMany(Cart::class)->withPivot('quantity');
+    }
+    
     protected $primaryKey = 'id_producto';
 
-    protected $fillable = ['nombre', 'descripcion', 'id_categoria', 'status', 'photo'];
+    protected $fillable = ['nombre', 'descripcion', 'status', 'photo'];
 }

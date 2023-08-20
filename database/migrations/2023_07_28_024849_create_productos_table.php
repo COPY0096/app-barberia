@@ -15,8 +15,6 @@ return new class extends Migration
             $table->id('id_producto', true);
             $table->string('nombre', 30);
             $table->string('descripcion', 50);
-            $table->unsignedBigInteger('id_categoria');
-            $table->foreign('id_categoria')->references('id_categoria')->on('categoria_servicios');
             $table->boolean('status');
             $table->binary('photo');
             $table->timestamps();

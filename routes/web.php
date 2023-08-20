@@ -8,6 +8,7 @@ use App\Http\Controllers\CitaController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\ServicioController;
+use App\Http\Controllers\CarritoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +57,20 @@ Route::get('/redireccionar', function () {
 
 Route::get('/proceso/producto', [ProductoController::class, 'mostrar'])->name('mostrar');
 
+
+
+Route::get('/productos', [ProductoController::class, 'index'])->name('productos.index');
+Route::get('/productos/{id}', [ProductoController::class, 'mostrar'])->name('productos.mostrar');
+
+// routes/web.php
+
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/carrito', [CarritoController::class, 'index'])->name('carrito.index');
+    Route::post('/carrito/add', [CarritoController::class, 'addProduct'])->name('carrito.add');
+    Route::post('/carrito/remove', [CarritoController::class, 'removeProduct'])->name('carrito.remove');
+});
 
 
 
