@@ -35,6 +35,7 @@
                                     <th>Foto</th>
                                     <th>Nombre</th>
                                     <th>Descripcion</th>
+                                    <th>Precio</th>
                                     <th>Categoria</th>
                                     <th>Estado</th>
                                     <th>Acciones</th>
@@ -50,6 +51,7 @@
                                     <td><img src="{{ asset('ruta/del/archivo/' . $producto->photo) }}" alt="Foto del producto" width="100"></td>
                                     <td>{{ $producto->nombre }}</td>
                                     <td>{{ $producto->descripcion }}</td>
+                                    <td>{{ $producto->precio_unitario }}</td>
                                     <td>{{ $producto->id_categoria }}</td>
                                     <td>{{ $producto->estado }}</td>
                                     <td>
@@ -65,6 +67,7 @@
                                 <th>Foto</th>
                                 <th>Nombre</th>
                                 <th>Descripcion</th>
+                                <th>Precio</th>
                                 <th>Categoria</th>
                                 <th>Estado</th>
                                 <th>Acciones</th>
@@ -102,6 +105,10 @@
                         <div class="form-group">
                             <label for="descripcion">Descripcion</label>
                             <input type="text" name="descripcion" class="form-control" id="descripcion">
+                        </div>
+                        <div class="form-group">
+                            <label for="precio_unitario">Precio</label>
+                            <input type="text" name="precio_unitario" class="form-control" id="precio_unitario">
                         </div>
                         <div class="form-group">
                             <label for="id_categoria">Categoria</label>

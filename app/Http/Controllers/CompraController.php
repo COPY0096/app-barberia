@@ -3,23 +3,34 @@
 namespace App\Http\Controllers;
 
 use App\Models\Compra;
+use App\Models\Producto;
+use App\Models\Cliente;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
+
 class CompraController extends Controller
 {
+  
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
         //
+
+        $arrayDetalleCompra = Compra::with('comprasProductos.producto')->get();
+
+
         $compras = Compra::with('cliente', 'productos')->orderBy('created_at', 'desc')->paginate(10);
+        $productos = Producto::all(); // Obtener todos los productos
+        $this->productosList = Producto::all(); // Obtener todos los productos
+        $clientes = Cliente::all();
         // Asegúrate de reemplazar 'cliente' y 'productos' con las relaciones adecuadas en tu modelo Compra
     
-        return view('admin.procesos.compras', ['compras' => $compras]);
+        return view('admin.procesos.compras', ['compras' => $compras,  'productos' => $productos, 'clientes' => $clientes,]);
 
     }
 
@@ -28,36 +39,68 @@ class CompraController extends Controller
      */
     public function create()
     {
-        //
-    }
 
+    }
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
-        // Valida los datos del formulario de compra
+
+
+
         $request->validate([
-            'id_cliente' => 'required',
-            'id_producto' => 'required',
-            'cantidad' => 'required|integer|min:1',
-            // Agrega más validaciones según tus necesidades
+            'id_cliente' => 'required|exists:clientes,id_cliente', // Aquí se cambió 'id' por 'id_cliente'
+            'productos' => 'required|array',
+            'productos.*' => 'required|exists:productos,id_producto',
+            'cantidades' => 'required|array',
+            'cantidades.*' => 'required|integer|min:1',
         ]);
+        
+        $productos = $request->input('productos');
+        $cantidades = $request->input('cantidades');
+        $importes = $request->input('importes');
 
-        // Crea una nueva instancia del modelo Compra
+       
+       
+        
+      
         $compra = new Compra();
-        $compra->cliente_id = $request->input('id_cliente');
+        $compra->id_cliente = $request->input('id_cliente');
+
+        $montoTotal=0;
+        foreach ($cantidades as $index => $cantidad) {
+
+            foreach ($importes as $index => $importe) {
+
+                 $montoTotal += ($cantidad*$importe);
+                 break;
+
+            }
+
+        }
+
+        $compra->monto_total = $montoTotal;
+
+        // dd($compra->monto_total);
         $compra->save();
+        
 
-        // Agrega los productos comprados a la relación 'productos' de la compra
-        $producto = Producto::find($request->input('id_producto'));
-        $compra->productos()->attach($producto, ['cantidad' => $request->input('cantidad')]);
-
-        // Puedes agregar más lógica aquí, como calcular el total de la compra, etc.
-
+        foreach ($productos as $index => $productoId) {
+            $producto = Producto::find($productoId);
+            $precioUnitario = $producto->precio_unitario; // Asegúrate de que estás obteniendo el precio correctamente
+            $cantidad = $cantidades[$productoId]; // Asegúrate de que estás obteniendo la cantidad correctamente
+        
+            $compra->productos()->attach($productoId, [
+                'cantidad' => $cantidad,
+                'precio_unitario' => $precioUnitario,
+            ]);
+        }
+    
         return redirect()->route('compra')->with('success', 'Compra realizada exitosamente.');
     }
+    
+    
 
     /**
      * Display the specified resource.

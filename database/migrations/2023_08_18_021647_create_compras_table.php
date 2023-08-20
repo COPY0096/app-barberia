@@ -18,24 +18,12 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('compra_productos', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('id_compra');
-            $table->unsignedBigInteger('id_producto');
-            $table->integer('cantidad');
-            $table->decimal('precio_unitario', 10, 2);
-            $table->timestamps();
-        });
-
         // Agregar relaciones con las tablas de clientes y productos
         Schema::table('compras', function (Blueprint $table) {
             $table->foreign('id_cliente')->references('id_cliente')->on('clientes');
         });
 
-        Schema::table('compra_productos', function (Blueprint $table) {
-            $table->foreign('id_compra')->references('id_compra')->on('compras');
-            $table->foreign('id_producto')->references('id_producto')->on('productos');
-        });
+
     }
 
 
