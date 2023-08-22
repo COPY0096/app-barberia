@@ -32,5 +32,11 @@
                 @yield('content')
             </main>
         </div>
+
+        <head>
+            <!-- ... otras etiquetas ... -->
+            <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
+        </head>
+        
     </body>
 </html>
