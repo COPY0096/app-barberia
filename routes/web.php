@@ -9,6 +9,7 @@ use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\ServicioController;
 use App\Http\Controllers\CompraController;
+use App\Http\Controllers\VentaController;
 
 
 /*
@@ -84,8 +85,9 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/home',[HomeController::class,'index'])->name('home');
 
-    Route::get('/control/cita', [CitaController::class, 'index'])->name('control.cita');
+    // Route::get('/proceso/ControlCita', [CitaController::class, 'index'])->name('control-cita');
     Route::get('/proceso/compra', [CompraController::class, 'index'])->name('compra');
+    Route::get('/proceso/venta', [VentaController::class, 'index'])->name('venta');
     Route::get('/mantenimiento/producto', [ProductoController::class, 'index'])->name('producto');
     Route::get('/mantenimiento/cliente', [ClienteController::class, 'index'])->name('cliente');
     Route::get('/mantenimiento/empleado', [EmpleadoController::class, 'index'])->name('empleado');
@@ -95,6 +97,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/proceso/ControlCita', [CitaController::class, 'index'])->name('control-cita');
+    Route::post('/citas/{cita}/actualizar-estado', [CitaController::class, 'actualizarEstado'])->name('citas.actualizar-estado');
+
+    Route::post('/citas/{cita}/actualizar-razon', [CitaController::class, 'actualizarRazonDeCancelacion'])
+    ->name('citas.actualizar-razon');
+
 
 
 });
@@ -107,6 +116,7 @@ Route::resource('citas', CitaController::class);
 Route::resource('empleados', EmpleadoController::class);
 Route::resource('servicios', ServicioController::class);
 Route::resource('compras', CompraController::class);
+Route::resource('ventas', VentaController::class);
 
 
 

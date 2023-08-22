@@ -14,11 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('servicios_reservados', function (Blueprint $table) {
-            $table->id('id_servicio_reservado');
-            $table->unsignedBigInteger('id_cita')->nullable();
-            $table->foreign('id_cita')->references('id_cita')->on('citas');
-            $table->unsignedBigInteger('id_servicio')->nullable(); 
+            $table->unsignedBigInteger('id_cliente');
+            $table->foreign('id_cliente')->references('id_cliente')->on('citas');
+            $table->unsignedBigInteger('id_empleado');
+            $table->foreign('id_empleado')->references('id_empleado')->on('citas');
+            $table->unsignedBigInteger('id_servicio'); 
             $table->foreign('id_servicio')->references('id_servicio')->on('servicios');
+            $table->index(['id_cliente', 'id_empleado', 'id_servicio']);
             $table->timestamps();
     
             // Definir restricciones de clave foránea

@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('especialidad', function (Blueprint $table) {
-            $table->id('idEspecialidad');
-            $table->unsignedBigInteger('idDepartamento')->nullable();
-            $table->foreign('idDepartamento')->references('idDepartamento')->on('departamento');
+        Schema::create('especialidades', function (Blueprint $table) {
+            $table->id('id_especialidad',true);
+            $table->unsignedBigInteger('id_departamento')->nullable();
+            $table->foreign('id_departamento')->references('id_departamento')->on('departamentos');
             $table->string('Especialidad', 45)->nullable();
             $table->string('Descripcion', 100)->nullable();
             $table->float('Salario', 10, 0)->nullable();
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('especialidad');
+        Schema::dropIfExists('especialidades');
     }
 };

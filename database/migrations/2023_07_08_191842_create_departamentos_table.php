@@ -13,11 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('vacantes', function (Blueprint $table) {
-            $table->id('numero_vacante');
-            $table->string('idPuesto', 45)->nullable();
-            $table->dateTime('fecha')->nullable();
-            $table->boolean('puesto')->nullable();
+        Schema::create('departamentos', function (Blueprint $table) {
+            $table->id('id_departamento');
+            $table->string('Departamento', 100)->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vacantes');
+        Schema::dropIfExists('departamentos');
     }
 };

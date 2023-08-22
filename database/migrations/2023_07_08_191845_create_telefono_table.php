@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('telefono', function (Blueprint $table) {
-            $table->id('idtelefono');
+            $table->id('id_telefono');
             $table->string('numero', 45)->nullable();
             $table->timestamps();
         });

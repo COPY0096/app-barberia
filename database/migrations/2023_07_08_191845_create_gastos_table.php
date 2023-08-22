@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('gastos', function (Blueprint $table) {
-            $table->id('idGastos');
+            $table->id('id_gastos');
             $table->string('descripcion', 100)->nullable();
             $table->dateTime('fecha')->nullable();
             $table->integer('monto')->nullable();

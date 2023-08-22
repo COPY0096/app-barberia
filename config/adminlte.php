@@ -325,7 +325,7 @@ return [
             'submenu' => [
                 [
                     'text'        => 'Control Citas',
-                    'url'         => '/control/cita',
+                    'url'         => '/proceso/ControlCita',
                     'icon'        => 'fas fa-columns',
                     // 'label'       => 4,
                     'label_color' => 'success',
@@ -339,7 +339,7 @@ return [
                 ],
                 [
                     'text'        => 'Ventas',
-                    'url'         => '/admin/ventas',
+                    'url'         => '/proceso/venta',
                     'icon'        => 'fas fa-store',
                     // 'label'       => 4,
                     'label_color' => 'success',
