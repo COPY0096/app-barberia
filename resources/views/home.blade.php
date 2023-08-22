@@ -106,25 +106,6 @@
         }
     </script>
 </head>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Sistema de Peluquería/Salón</title>
-    <script>
-        function mostrarOpcionesSegunServicio() {
-            var servicioSeleccionado = document.getElementById("servicio").value;
-            var barberoCampo = document.getElementById("campo-barbero");
-            var tipoServicioCampo = document.getElementById("campo-tipo-servicio");
-            if (servicioSeleccionado === "peluqueria") {
-                barberoCampo.style.display = "block";
-                tipoServicioCampo.style.display = "block";
-            } else if (servicioSeleccionado === "spa") {
-                barberoCampo.style.display = "none";
-                tipoServicioCampo.style.display = "block";
-            }
-        }
-    </script>
-</head>
 <body>
     <section>
         <h2>Crear una cita</h2>
@@ -142,23 +123,18 @@
             <div id="campo-barbero" style="display:none;">
                 <label for="barbero">Barbero:</label>
                 <select id="barbero" name="barbero" required>
-                    <option value="barbero1">Barbero 1</option>
-                    <option value="barbero2">Barbero 2</option>
-                    <option value="barbero3">Barbero 3</option>
-                    <option value="barbero4">Barbero 4</option>
-                    <option value="barbero5">Barbero 5</option>
+                    <option value="ricardo">Barbero 1</option>
+                    <option value="jeremy">Barbero 2</option>
+                    <option value="ramon">Barbero 3</option>
+                    <option value="agustin">Barbero 4</option>
+                    <option value="roberto">Barbero 5</option>
                 </select>
             </div>
 
             <div id="campo-tipo-servicio" style="display:none;">
                 <label for="tipo_servicio">Tipo de Servicio:</label>
                 <select id="tipo_servicio" name="tipo_servicio" required>
-
-                    <option value="corte">Corte de pelo</option>
-                    <option value="peinado">Peinado</option>
-                    <option value="manicura">Manicura</option>
-                    <option value="masaje">Masaje</option>
-
+                    <!-- Las opciones se generan dinámicamente según el servicio seleccionado -->
                 </select>
             </div>
 
@@ -170,9 +146,6 @@
 
             <label for="correo">Correo electrónico:</label>
             <input type="email" id="correo" name="correo" required>
-
-
-            <input type="submit" value="Crear Cita">
 
 
             <!DOCTYPE html>
@@ -187,28 +160,29 @@
             alert("¡La cita ha sido creada exitosamente!");
         }
     </script>
+    
 </head>
 <body>
     
-        <form action="{{ route('cita.store') }}" method="post">
-            <!-- ... Rest of the form ... -->
-            <input type="submit" value="Crear Cita" onclick="mostrarMensajeCitaCreada()">
-        </form>
+    <form action="{{ route('cita.store') }}" method="post">
+        @csrf
+        <!-- ... Campos del formulario ... -->
+        <input type="submit" value="Crear Cita">
+    </form>
+    
 
         
 
 </body>
 </html>
 
-
         </form>
     </section>
 </body>
-</html>
-</html>
-
 
 </html>
 
+
 </html>
 
+</html>
