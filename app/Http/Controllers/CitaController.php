@@ -15,6 +15,7 @@ use Carbon\Carbon;
 
 class CitaController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      */
@@ -129,6 +130,5 @@ class CitaController extends Controller
 
         return redirect()->route('citas.index')->with('success', 'Razón de cancelación actualizada exitosamente.');
     }
-
 
 }

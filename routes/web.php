@@ -11,6 +11,7 @@ use App\Http\Controllers\ServicioController;
 use App\Http\Controllers\CompraController;
 use App\Http\Controllers\VentaController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -58,6 +59,20 @@ Route::get('/redireccionar', function () {
 
 Route::get('/proceso/producto', [ProductoController::class, 'mostrar'])->name('mostrar');
 
+
+
+Route::get('/productos', [ProductoController::class, 'index'])->name('productos.index');
+
+Route::resource('cita', 'CitaController'); // Esto define todas las rutas necesarias para CRUD
+
+
+// routes/web.php
+
+
+
+
+
+Route::post('/agregar-al-carrito/{producto}', [CarritoController::class, 'agregarProducto'])->name('agregar-al-carrito');
 
 
 
