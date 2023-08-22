@@ -15,6 +15,7 @@ use Carbon\Carbon;
 
 class CitaController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      */
@@ -128,38 +129,6 @@ class CitaController extends Controller
         ]);
 
         return redirect()->route('citas.index')->with('success', 'Razón de cancelación actualizada exitosamente.');
-    }
-
-    public function createClienteCita()
-    {
-        $clientes = Cliente::all();
-        $empleados = Empleado::all();
-        $servicios = Servicio::all();
-
-        return view('Usuarios.crear-cita', compact('clientes', 'empleados', 'servicios'));
-    }
-
-    public function storeClienteCita(Request $request)
-    {
-        $request->validate([
-            'id_cliente' => 'required',
-            'id_empleado' => 'required',
-            'fecha_creacion' => 'required|date',
-            // Otras validaciones aquí
-        ]);
-
-        $cita = new Cita([
-            'id_cliente' => $request->input('id_cliente'),
-            'id_empleado' => $request->input('id_empleado'),
-            'fecha_creacion' => Carbon::parse($request->input('fecha_creacion')),
-            'estado' => 'pendiente', // Puedes establecer el estado por defecto aquí
-            'id_servicio' => $request->input('id_servicio'),
-            'razon_de_cancelacion' => null,
-        ]);
-
-        $cita->save();
-
-        return redirect()->route('inicio')->with('success', 'Cita agendada correctamente.');
     }
 
 }

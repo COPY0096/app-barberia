@@ -139,7 +139,11 @@
 <section>
     <h2 class="text-2xl font-semibold">Reserva un Servicio</h2>
     <p>¿Listo para lucir increíble?</p>
+<<<<<<< HEAD
     <a href="{{ url('/agendar-cita') }}" class="service-btn">Reservar Ahora</a>
+=======
+    <a href="{{ url('/redireccionar') }}" class="service-btn">Reservar Ahora</a>
+>>>>>>> 60657667c466f84a8bea916434dfa667988f6e99
 </section>
 
 
