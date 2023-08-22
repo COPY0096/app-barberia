@@ -45,7 +45,7 @@ class HomeController extends Controller
                 return redirect()->back();
             }
 
-            $data= Empleado::select('id_empleado','created_at')
+            $data= Empleado::select('id_empleado','created_at')->get();
 
 
         }
