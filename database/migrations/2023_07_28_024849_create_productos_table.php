@@ -15,6 +15,11 @@ return new class extends Migration
             $table->string('nombre', 30);
             $table->string('descripcion', 200);
             $table->float('precio'); // Corregido aquí
+            $table->unsignedBigInteger('id_categoria')->nullable();
+            $table->foreign('id_categoria')->references('id_categoria')->on('categoria_servicios');
+            $table->boolean('status');
+            $table->binary('photo');
+
             $table->timestamps();
         });
     }

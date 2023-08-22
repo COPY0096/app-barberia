@@ -106,6 +106,25 @@
         }
     </script>
 </head>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sistema de Peluquería/Salón</title>
+    <script>
+        function mostrarOpcionesSegunServicio() {
+            var servicioSeleccionado = document.getElementById("servicio").value;
+            var barberoCampo = document.getElementById("campo-barbero");
+            var tipoServicioCampo = document.getElementById("campo-tipo-servicio");
+            if (servicioSeleccionado === "peluqueria") {
+                barberoCampo.style.display = "block";
+                tipoServicioCampo.style.display = "block";
+            } else if (servicioSeleccionado === "spa") {
+                barberoCampo.style.display = "none";
+                tipoServicioCampo.style.display = "block";
+            }
+        }
+    </script>
+</head>
 <body>
     <section>
         <h2>Crear una cita</h2>
@@ -134,7 +153,12 @@
             <div id="campo-tipo-servicio" style="display:none;">
                 <label for="tipo_servicio">Tipo de Servicio:</label>
                 <select id="tipo_servicio" name="tipo_servicio" required>
-                    <!-- Las opciones se generan dinámicamente según el servicio seleccionado -->
+
+                    <option value="corte">Corte de pelo</option>
+                    <option value="peinado">Peinado</option>
+                    <option value="manicura">Manicura</option>
+                    <option value="masaje">Masaje</option>
+
                 </select>
             </div>
 
@@ -146,6 +170,9 @@
 
             <label for="correo">Correo electrónico:</label>
             <input type="email" id="correo" name="correo" required>
+
+
+            <input type="submit" value="Crear Cita">
 
 
             <!DOCTYPE html>
@@ -176,10 +203,11 @@
 </body>
 </html>
 
+
         </form>
     </section>
 </body>
-
+</html>
 </html>
 
 

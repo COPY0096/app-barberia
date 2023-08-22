@@ -21,7 +21,7 @@ return new class extends Migration
                 $table->string('descripcion_servicio');
                 $table->decimal('precio_servicio', 6);
                 $table->integer('duracion_servicio');
-                $table->unsignedBigInteger('id_categoria');
+                $table->unsignedBigInteger('id_categoria')->nullable();
                 $table->foreign('id_categoria')->references('id_categoria')->on('categoria_servicios');
                 $table->timestamps();
             });

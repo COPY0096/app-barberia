@@ -50,7 +50,7 @@
                                     <td>{{ $servicio->duracion_servicio }}</td>
                                     <td>
                                         <button class="btn btn-warning">Editar</button>
-                                        <!-- <a href="/management/category/{{$category->id}}/edit" class="btn btn-warning">Edit</a> -->
+                                       
                                         <button class="btn btn-danger">Eliminar</button>
                                     </td>
                                  </tr>

@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('servicios_reservados', function (Blueprint $table) {
             $table->id('id_servicio_reservado');
-            $table->unsignedBigInteger('id_cita');
+            $table->unsignedBigInteger('id_cita')->nullable();
             $table->foreign('id_cita')->references('id_cita')->on('citas');
-            $table->unsignedBigInteger('id_servicio'); 
+            $table->unsignedBigInteger('id_servicio')->nullable(); 
             $table->foreign('id_servicio')->references('id_servicio')->on('servicios');
             $table->timestamps();
     
