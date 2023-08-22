@@ -10,10 +10,8 @@ use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
-
 class CompraController extends Controller
 {
-  
     /**
      * Display a listing of the resource.
      */
@@ -30,7 +28,12 @@ class CompraController extends Controller
         $clientes = Cliente::all();
         // Asegúrate de reemplazar 'cliente' y 'productos' con las relaciones adecuadas en tu modelo Compra
     
-        return view('admin.procesos.compras', ['compras' => $compras,  'productos' => $productos, 'clientes' => $clientes,]);
+        return view('admin.procesos.compras', [
+            'compras' => $compras,
+            'productos' => $productos,
+            'clientes' => $clientes,
+            'productosSeleccionados' => [], // Inicializa la variable aquí para evitar errores
+        ]);
 
     }
 
@@ -46,59 +49,79 @@ class CompraController extends Controller
      */
     public function store(Request $request)
     {
-
-
-
         $request->validate([
-            'id_cliente' => 'required|exists:clientes,id_cliente', // Aquí se cambió 'id' por 'id_cliente'
+            'id_cliente' => 'required|exists:clientes,id_cliente',
             'productos' => 'required|array',
             'productos.*' => 'required|exists:productos,id_producto',
             'cantidades' => 'required|array',
             'cantidades.*' => 'required|integer|min:1',
+            'importes' => 'required|array',
+            'importes.*' => 'required|numeric|min:0.01',
         ]);
-        
+    
         $productos = $request->input('productos');
         $cantidades = $request->input('cantidades');
         $importes = $request->input('importes');
-
-       
-       
-        
-      
+    
         $compra = new Compra();
         $compra->id_cliente = $request->input('id_cliente');
+    
+        // Establece el monto total antes de guardar la compra
+        $montoTotal = 0;
+        foreach ($productos as $productoId) {
+            if (isset($cantidades[$productoId]) && isset($importes[$productoId])) {
+                $producto = Producto::find($productoId);
+                $precioUnitario = $producto->precio_unitario;
+                $cantidad = $cantidades[$productoId];
+                $montoTotal += ($cantidad * $importes[$productoId]);
 
-        $montoTotal=0;
-        foreach ($cantidades as $index => $cantidad) {
 
-            foreach ($importes as $index => $importe) {
-
-                 $montoTotal += ($cantidad*$importe);
-                 break;
 
             }
-
-        }
-
-        $compra->monto_total = $montoTotal;
-
-        // dd($compra->monto_total);
-        $compra->save();
-        
-
-        foreach ($productos as $index => $productoId) {
-            $producto = Producto::find($productoId);
-            $precioUnitario = $producto->precio_unitario; // Asegúrate de que estás obteniendo el precio correctamente
-            $cantidad = $cantidades[$productoId]; // Asegúrate de que estás obteniendo la cantidad correctamente
-        
-            $compra->productos()->attach($productoId, [
-                'cantidad' => $cantidad,
-                'precio_unitario' => $precioUnitario,
-            ]);
         }
     
-        return redirect()->route('compra')->with('success', 'Compra realizada exitosamente.');
+        $compra = new Compra();
+        $compra->id_cliente = $request->input('id_cliente');
+        $compra->monto_total = $montoTotal; // Agrega el monto total
+        $compra->save(); // Guarda la compra para obtener un ID válido
+    
+        $compraId = $compra->id_compra;
+    
+        // Crea un arreglo para almacenar los detalles de los productos seleccionados
+        $productosSeleccionados = [];
+        foreach ($productos as $productoId) {
+            if (in_array($productoId, $request->input('productos'))) {
+                if (isset($cantidades[$productoId]) && isset($importes[$productoId])) {
+                    $producto = Producto::find($productoId);
+                    $productosSeleccionados[$productoId] = [
+                        'precio_unitario' => $producto->precio_unitario,
+                        'cantidad' => $cantidades[$productoId],
+                    ];
+
+                    $compra->productos()->attach($productoId, [
+                        'id_compra' => $compraId,
+                        'cantidad' => $cantidades[$productoId],
+                        'precio_unitario' => $producto->precio_unitario,
+                    ]);
+
+                }
+            }
+        }
+    
+        $compras = Compra::with('cliente', 'productos')->orderBy('created_at', 'desc')->paginate(10);
+        $productosList = Producto::all();
+        $clientes = Cliente::all();
+    
+        return view('admin.procesos.compras', [
+            'compras' => $compras,
+            'productos' => $productosList,
+            'clientes' => $clientes,
+            'productosSeleccionados' => $productosSeleccionados,
+        ])->with('success', 'Compra realizada exitosamente.');
     }
+    
+    
+    
     
     
 

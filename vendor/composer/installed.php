@@ -3,7 +3,7 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'f498b183e3e93eec258041eea9cc83b289d86a80',
+        'reference' => 'c0fde48730d843455ef968ec6229b873f50cf297',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -472,7 +472,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'f498b183e3e93eec258041eea9cc83b289d86a80',
+            'reference' => 'c0fde48730d843455ef968ec6229b873f50cf297',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -1390,6 +1390,15 @@
             'install_path' => __DIR__ . '/../theseer/tokenizer',
             'aliases' => array(),
             'dev_requirement' => true,
+        ),
+        'thiagoprz/eloquent-composite-key' => array(
+            'pretty_version' => '1.0.1',
+            'version' => '1.0.1.0',
+            'reference' => '43012fa195db8517a5344355aa83cd39aaa466aa',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../thiagoprz/eloquent-composite-key',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'tijsverkoyen/css-to-inline-styles' => array(
             'pretty_version' => '2.2.6',

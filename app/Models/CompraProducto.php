@@ -10,9 +10,9 @@ class CompraProducto extends Model
     use HasFactory;
 
     protected $table = 'compra_productos';
-    protected $primaryKey = 'id';
+    // protected $primaryKey = 'id';
 
-    protected $fillable = [ 'id', 'id_compra', 'id_producto', 'cantidad', 'precio_unitario'];
+    protected $fillable = [ 'id_compra', 'id_producto', 'cantidad', 'precio_unitario'];
 
 
 

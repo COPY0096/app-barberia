@@ -12,4 +12,9 @@ class Empleado extends Model
     protected $primaryKey = 'id_empleado';
 
     protected $fillable = ['nombre', 'apellido', 'celular', 'email'];
+
+    public function citas()
+    {
+        return $this->hasMany(Cita::class, 'id_empleado');
+    }
 }

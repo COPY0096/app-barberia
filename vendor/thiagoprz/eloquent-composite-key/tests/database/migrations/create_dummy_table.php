@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateDummyTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('departamento', function (Blueprint $table) {
-            $table->id('idDepartamento');
-            $table->string('Departamento', 100)->nullable();
+        Schema::create('dummy', function (Blueprint $table) {
+            $table->unsignedBigInteger('key_1');
+            $table->unsignedBigInteger('key_2');
+            $table->string('name');
+            $table->string('email');
+            $table->string('phone');
+            $table->string('city');
             $table->timestamps();
         });
     }
@@ -27,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('departamento');
+        Schema::dropIfExists('dummy');
     }
-};
+}

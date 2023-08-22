@@ -21,6 +21,8 @@ return new class extends Migration
             $table->boolean('status');
             $table->binary('photo');
             $table->timestamps();
+
+            $table->index('id_producto');
         });
     }
 

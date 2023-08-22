@@ -9,6 +9,9 @@
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-create-producto">
             Añadir
         </button>
+        <button type="button" class="btn btn-primary" onclick="window.print();">
+            Imprimir
+        </button>
     </h1>
 @stop
 

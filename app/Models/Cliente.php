@@ -12,5 +12,10 @@ class Cliente extends Model
     protected $primaryKey = 'id_cliente';
 
     protected $fillable = ['nombre', 'apellido', 'celular', 'email_cliente'];
+    
+    public function citas()
+    {
+        return $this->hasMany(Cita::class, 'id_cliente');
+    }
 
 }

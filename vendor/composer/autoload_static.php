@@ -52,6 +52,7 @@ class ComposerStaticInit4d8bf7859cd6e733ce91d7552e6a68d2
         'T' => 
         array (
             'TijsVerkoyen\\CssToInlineStyles\\' => 31,
+            'Thiagoprz\\CompositeKey\\' => 23,
             'Tests\\' => 6,
             'Termwind\\' => 9,
         ),
@@ -215,6 +216,10 @@ class ComposerStaticInit4d8bf7859cd6e733ce91d7552e6a68d2
         'TijsVerkoyen\\CssToInlineStyles\\' => 
         array (
             0 => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src',
+        ),
+        'Thiagoprz\\CompositeKey\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/thiagoprz/eloquent-composite-key/src',
         ),
         'Tests\\' => 
         array (
@@ -626,6 +631,7 @@ class ComposerStaticInit4d8bf7859cd6e733ce91d7552e6a68d2
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Auth\\VerifyEmailController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerifyEmailController.php',
+        'App\\Http\\Controllers\\CitaController' => __DIR__ . '/../..' . '/app/Http/Controllers/CitaController.php',
         'App\\Http\\Controllers\\ClienteController' => __DIR__ . '/../..' . '/app/Http/Controllers/ClienteController.php',
         'App\\Http\\Controllers\\CompraController' => __DIR__ . '/../..' . '/app/Http/Controllers/CompraController.php',
         'App\\Http\\Controllers\\CompraProductoController' => __DIR__ . '/../..' . '/app/Http/Controllers/CompraProductoController.php',
@@ -635,6 +641,8 @@ class ComposerStaticInit4d8bf7859cd6e733ce91d7552e6a68d2
         'App\\Http\\Controllers\\ProductoController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProductoController.php',
         'App\\Http\\Controllers\\ProfileController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProfileController.php',
         'App\\Http\\Controllers\\ServicioController' => __DIR__ . '/../..' . '/app/Http/Controllers/ServicioController.php',
+        'App\\Http\\Controllers\\VentaController' => __DIR__ . '/../..' . '/app/Http/Controllers/VentaController.php',
+        'App\\Http\\Controllers\\VentaProductoController' => __DIR__ . '/../..' . '/app/Http/Controllers/VentaProductoController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
@@ -656,6 +664,8 @@ class ComposerStaticInit4d8bf7859cd6e733ce91d7552e6a68d2
         'App\\Models\\Producto' => __DIR__ . '/../..' . '/app/Models/Producto.php',
         'App\\Models\\Servicio' => __DIR__ . '/../..' . '/app/Models/Servicio.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
+        'App\\Models\\Venta' => __DIR__ . '/../..' . '/app/Models/Venta.php',
+        'App\\Models\\VentaProducto' => __DIR__ . '/../..' . '/app/Models/VentaProducto.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
@@ -7202,6 +7212,7 @@ class ComposerStaticInit4d8bf7859cd6e733ce91d7552e6a68d2
         'TheSeer\\Tokenizer\\TokenCollectionException' => __DIR__ . '/..' . '/theseer/tokenizer/src/TokenCollectionException.php',
         'TheSeer\\Tokenizer\\Tokenizer' => __DIR__ . '/..' . '/theseer/tokenizer/src/Tokenizer.php',
         'TheSeer\\Tokenizer\\XMLSerializer' => __DIR__ . '/..' . '/theseer/tokenizer/src/XMLSerializer.php',
+        'Thiagoprz\\CompositeKey\\HasCompositeKey' => __DIR__ . '/..' . '/thiagoprz/eloquent-composite-key/src/HasCompositeKey.php',
         'TijsVerkoyen\\CssToInlineStyles\\CssToInlineStyles' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/CssToInlineStyles.php',
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Processor' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Processor.php',
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Property\\Processor' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Property/Processor.php',

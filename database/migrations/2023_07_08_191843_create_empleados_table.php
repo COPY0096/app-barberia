@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('empleados', function (Blueprint $table) {
             $table->id('id_empleado', true);
+            $table->unsignedBigInteger('id_especialidad')->nullable();
+            $table->foreign('id_especialidad')->references('id_especialidad')->on('especialidades');
             $table->string('nombre', 20);
             $table->string('apellido', 20);
             $table->string('celular', 30);

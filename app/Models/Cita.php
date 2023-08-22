@@ -4,12 +4,41 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Thiagoprz\EloquentCompositeKey\HasCompositePrimaryKey;
+use Carbon\Carbon;
 
 class Cita extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'id_cita';
+    protected $table = 'citas';
+    
+    protected $primaryKey = 'id_cliente'; // Elimina esta línea
 
-    protected $fillable = ['fecha_creacion', 'id_cliente', 'id_empleado', 'hora_de_inicio','hora_de_finalizacion','cancelado','razon_de_cancelacion'];
+    protected $dates = ['fecha_creacion'];  
+    
+    protected $fillable = ['id_cliente', 'id_empleado', 'fecha_creacion', 'estado', 'id_servicio', 'razon_de_cancelacion'];
+
+    public function cliente()
+    {
+        return $this->belongsTo(Cliente::class, 'id_cliente');
+    }
+
+    public function empleado()
+    {
+        return $this->belongsTo(Empleado::class, 'id_empleado');
+    }
+
+    public function servicio()
+    {
+        return $this->belongsTo(Servicio::class, 'id_servicio');
+    }
+
+    public static $estadosCancelacion = [
+        'pendiente' => 'Pendiente',
+        'completada' => 'Completada',
+        'cancelada' => 'Cancelada',
+    ];
+
+    
 }

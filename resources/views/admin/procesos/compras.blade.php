@@ -2,27 +2,15 @@
 
 @section('title', 'Compras')
 
-@section('content_header')
-    <h1>
-        Compras
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-create-compra">
-            Añadir
-        </button>
-    </h1>
-@stop
-
-@if (Session::get('success'))
-    <div class="alert alert-success mt-2">
-        <strong>{{ Session::get('success') }}</strong><br><br>
-    </div>
-@endif
-
 @section('content')
 @section('content_header')
     <h1>
         Compras
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-create-compra">
             Añadir
+        </button>
+        <button type="button" class="btn btn-primary" onclick="window.print();">
+            Imprimir
         </button>
     </h1>
 @stop
@@ -39,7 +27,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Listado de compras</h3>
+                    <h3 class="card-title">Listado de compras realizadas</h3>
                 </div>
                 <div class="card-body">
                     <table id="compras" class="table table-bordered table-striped">
@@ -62,10 +50,12 @@
                                 <td>{{ $compra->monto_total }}</td>
                                 <td>
                                     @foreach ($compra->productos as $producto)
-                                        <p>Nombre: {{ $producto->nombre }}</p>
-                                        <p>Precio Unitario: {{ $producto->pivot->precio_unitario }}</p>
-                                        <p>Cantidad: {{ $producto->pivot->cantidad }}</p>
-                                        <p>------------------------------------</p>
+                                        @if (array_key_exists($producto->id_producto, $productosSeleccionados))
+                                            <p>Nombre: {{ $producto->nombre }}</p>
+                                            <p>Precio Unitario: {{ $productosSeleccionados[$producto->id_producto]['precio_unitario'] }}</p>
+                                            <p>Cantidad: {{ $productosSeleccionados[$producto->id_producto]['cantidad'] }}</p>
+                                            <p>------------------------------------</p>
+                                        @endif
                                     @endforeach
                                 </td>
                                 <td>
@@ -126,17 +116,20 @@
                             <tbody>
                                 @foreach($productos as $producto)
                                     <tr>
-                                        <td>{{ $producto->nombre }}</td>
+                                        <td>
+                                            <input type="checkbox" name="productos[]" value="{{ $producto->id_producto }}">
+                                            {{ $producto->nombre }}
+                                        </td>
                                         <td>
                                             <input placeholder="Cantidad" type="number" name="cantidades[{{ $producto->id_producto }}]" class="form-control" min="1">
-                                            <input placeholder="Precio" min="1" step="0.01" type="number" name="importes[{{ $producto->id_producto }}]" class="form-control" min="1">
-                                            <input type="hidden" name="productos[]" value="{{ $producto->id_producto }}">
+                                            <input placeholder="Precio" min="0.01" step="0.01" type="number" name="importes[{{ $producto->id_producto }}]" class="form-control" min="0.01">
                                         </td>
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
                     </div>
+
                     
                 </div>
                 <div class="modal-footer justify-content-between">
@@ -152,3 +145,8 @@
 <!-- /.modal -->
 
 @stop
+{{-- @if (Session::get('success'))
+    <div class="alert alert-success mt-2">
+        <strong>{{ Session::get('success') }}</strong><br><br>
+    </div>
+@endif --}}

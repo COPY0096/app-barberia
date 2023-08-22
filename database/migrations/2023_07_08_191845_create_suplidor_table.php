@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('suplidor', function (Blueprint $table) {
-            $table->unsignedBigInteger('idTerceros');
-            $table->foreign('idTerceros')->references('idTerceros')->on('terceros');
+            $table->unsignedBigInteger('id_terceros');
+            $table->foreign('id_terceros')->references('id_terceros')->on('terceros');
             $table->boolean('estado')->nullable();
             $table->timestamps();
         });

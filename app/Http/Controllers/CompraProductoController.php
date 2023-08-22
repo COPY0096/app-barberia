@@ -34,13 +34,18 @@ class CompraProductoController extends Controller
         // Validaciones y creación de la compra
     
         $productos = $request->input('productos', []);
-    
+        $cantidades = $request->input('cantidades', []);
+        $importes = $request->input('importes', []);
+
+        // Obtén la instancia de Compra basada en el request u otros métodos
+        $compra = Compra::find($request->input('id_compra'));
+
         foreach ($productos as $productoId => $cantidad) {
-            $producto = Producto::find($productoId);
-    
-            if ($producto) {
+            if (isset($cantidades[$productoId]) && isset($importes[$productoId])) {
+                $producto = Producto::find($productoId);
                 $precioUnitario = $producto->precio_unitario;
-    
+                $cantidad = $cantidades[$productoId];
+
                 // Asociar el producto a la compra con su precio unitario
                 $compra->productos()->attach($productoId, [
                     'cantidad' => $cantidad,

@@ -14,15 +14,13 @@ return new class extends Migration
         Schema::create('compras', function (Blueprint $table) {
             $table->id('id_compra');
             $table->unsignedBigInteger('id_cliente');
+            $table->foreign('id_cliente')->references('id_cliente')->on('clientes');
             $table->decimal('monto_total', 10, 2);
             $table->timestamps();
-        });
 
-        // Agregar relaciones con las tablas de clientes y productos
-        Schema::table('compras', function (Blueprint $table) {
-            $table->foreign('id_cliente')->references('id_cliente')->on('clientes');
-        });
+            $table->index(['id_compra','id_cliente']);
 
+        });
 
     }
 
