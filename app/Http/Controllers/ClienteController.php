@@ -20,10 +20,10 @@ class ClienteController extends Controller
      */
     public function index(): View
     {
-        /**
-        *$clientes = Cliente::latest()->paginate(3);
-        */
-        $clientes = Cliente::all();
+
+        // $clientes = Cliente::all();
+
+        $clientes = Cliente::with('usuario')->get();
         
         return view ('admin.clientes.index', ['clientes' => $clientes]);
     }

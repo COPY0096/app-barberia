@@ -54,12 +54,13 @@ Route::get('/', function () {
 
 
 Route::get('/redireccionar', function () {
-    return view('home');
+    return view('Usuarios.index');
 });
 
 Route::get('/proceso/producto', [ProductoController::class, 'mostrar'])->name('mostrar');
 
-
+Route::get('/agendar-cita', [CitaController::class, 'createClienteCita'])->name('agendar-cita');
+Route::post('/agendar-cita', [CitaController::class, 'storeClienteCita'])->name('store-agendar-cita');
 
 Route::get('/productos', [ProductoController::class, 'index'])->name('productos.index');
 
@@ -104,6 +105,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/citas/{cita}/actualizar-razon', [CitaController::class, 'actualizarRazonDeCancelacion'])
     ->name('citas.actualizar-razon');
 
+    Route::get('/area-chart', 'ChartController@areaChart');
 
 
 });

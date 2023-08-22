@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Cita;
+use App\Models\Empleado;
+use App\Models\Producto;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -41,6 +44,8 @@ class HomeController extends Controller
             else{
                 return redirect()->back();
             }
+
+            $data= Empleado::select('id_empleado','created_at')->get();
 
 
         }

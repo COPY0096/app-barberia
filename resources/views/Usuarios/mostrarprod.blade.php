@@ -68,4 +68,8 @@
         console.log(`Mostrando detalles del producto ${productoId}.`);
     }
 </script>
+<<<<<<< HEAD
 @endsection
+=======
+@endsection
+>>>>>>> 60657667c466f84a8bea916434dfa667988f6e99
