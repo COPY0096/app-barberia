@@ -65,8 +65,7 @@ Route::get('/productos', [ProductoController::class, 'index'])->name('productos.
 Route::resource('cita', 'CitaController'); // Esto define todas las rutas necesarias para CRUD
 
 
-// routes/web.php
-
+Route::resource('suplidores', SuplidorController::class); //////////////////////SUPLIDOR SUPLIDOR SUPLIDOR//////////////
 
 
 
